@@ -20,8 +20,10 @@ import { NotebookText, Search, Menu } from 'lucide-react';
 
 export default function MedNotesHomePage() {
   const [selectedFile, setSelectedFile] = useState<FileNode | null>(null);
+  const [initialPage, setInitialPage] = useState<number>(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
+  const [searchText, setSearchText] = useState<string | undefined>(undefined);
   const { toast } = useToast();
 
   const handleFileSelect = (file: FileNode) => {
@@ -88,9 +90,9 @@ export default function MedNotesHomePage() {
   }, [searchTerm]);
 
   // Компонент поиска по содержимому PDF
-  function PdfGlobalSearch({ nodes, onFileSelect }: { nodes: FileNode[]; onFileSelect: (file: FileNode) => void }) {
+  function PdfGlobalSearch({ nodes, onFileSelect }: { nodes: FileNode[]; onFileSelect: (file: FileNode, page?: number, searchText?: string) => void }) {
     const [value, setValue] = useState('');
-    const [searchResults, setSearchResults] = useState<{ path: string; preview: string }[]>([]);
+    const [searchResults, setSearchResults] = useState<{ path: string; preview: string; page?: number }[]>([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -108,7 +110,7 @@ export default function MedNotesHomePage() {
       setShowDropdown(data.length > 0);
     }, []);
 
-    const handleResultClick = useCallback((result: { path: string; preview: string }) => {
+    const handleResultClick = useCallback((result: { path: string; preview: string; page?: number }) => {
       setShowDropdown(false);
       setSearchResults([]);
       setValue('');
@@ -124,8 +126,8 @@ export default function MedNotesHomePage() {
         return null;
       };
       const file = findByPath(nodes, result.path);
-      if (file) onFileSelect(file);
-    }, [nodes, onFileSelect]);
+      if (file) onFileSelect(file, result.page, value);
+    }, [nodes, onFileSelect, value]);
 
     return (
       <div className="relative flex-1 min-w-0">
@@ -200,10 +202,14 @@ export default function MedNotesHomePage() {
             <SidebarTrigger className="md:hidden">
                <Menu />
             </SidebarTrigger>
-            <PdfGlobalSearch nodes={fileStructureData} onFileSelect={handleFileSelect} />
+            <PdfGlobalSearch nodes={fileStructureData} onFileSelect={(file, page, text) => {
+              setSelectedFile(file);
+              setInitialPage(page || 1);
+              setSearchText(text);
+            }} />
           </header>
           <main className="flex-1 p-4 md:p-6 overflow-auto">
-            <PdfViewer selectedFile={selectedFile} />
+            <PdfViewer selectedFile={selectedFile} initialPage={initialPage} searchText={searchText} />
           </main>
         </SidebarInset>
       </div>

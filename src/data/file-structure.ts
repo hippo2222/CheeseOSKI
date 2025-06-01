@@ -47,7 +47,7 @@ const akusherstvoPraktFiles: FileNode[] = [
   { id: 'akusherstvo-prakt-cervical-examination-with-speculum-2', name: 'B2 Огляд шийки матки в дзеркалах при гінекологічному дослідженні', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/cervical-examination-with-speculum-2.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'akusherstvo-prakt-cervical-cytology-sampling', name: 'Взяття біологічного матеріалу з шийки матки для проведення цитологічного дослідження', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/cervical-cytology-sampling.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'akusherstvo-prakt-bacterioscopic-sampling', name: 'Взяття мазків для бактеріоскопічного дослідження з уретри, цервікального каналу та піхви', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/bacterioscopic-sampling.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'akusherstvo-prakt-pelvic-measurements', name: 'Вимірювання розмірів нормального тазу та визначення справжньої кон’югати', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/pelvic-measurements.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'akusherstvo-prakt-pelvic-measurements', name: "Вимірювання розмірів нормального тазу та визначення справжньої кон'югати", type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/pelvic-measurements.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'akusherstvo-prakt-fetal-heart-rate-auscultation', name: 'Вислуховування серцебиття плода', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/fetal-heart-rate-auscultation.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'akusherstvo-prakt-internal-obstetric-examination', name: 'Внутрішнє акушерське дослідження', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/internal-obstetric-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'akusherstvo-prakt-clinical-breast-examination', name: 'Клінічне обстеження молочних залоз', type: 'file', icon: FileText, path: '/pdfs/akusherstvo/prakt/clinical-breast-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
@@ -58,7 +58,7 @@ const akusherstvoPraktFiles: FileNode[] = [
 
 // Ekstrenna Meditsyna files
 const ekstrenkaKlinFiles: FileNode[] = [
-  { id: 'ekstrenka-klin-cardiogenic-shock', name: '«Кардіогенний шок»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/klin/cardiogenic-shock.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
+  { id: 'ekstrenka-klin-cardiogenic-shock', name: '"Кардіогенний шок"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/klin/cardiogenic-shock.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'ekstrenka-klin-anaphylactic-shock', name: 'Анафілактичний шок', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/klin/anaphylactic-shock.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'ekstrenka-klin-hyperthermia', name: 'Гіпертермія', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/klin/hyperthermia.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'ekstrenka-klin-hypoglycemia', name: 'Гіпоглікемія', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/klin/hypoglycemia.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
@@ -69,11 +69,11 @@ const ekstrenkaKlinFiles: FileNode[] = [
 ];
 
 const ekstrenkaPraktFiles: FileNode[] = [
-  { id: 'ekstrenka-prakt-subclavian-vein-catheterization', name: '«Катетеризація підключичної вени»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/subclavian-vein-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'ekstrenka-prakt-intraosseous-access', name: '«Внутрішньокістковий доступ»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/intraosseous-access.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'ekstrenka-prakt-needle-decompression', name: '«Голкова декомпресія»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/needle-decompression.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'ekstrenka-prakt-peripheral-vein-catheterization', name: '«Катетеризація периферичної(ліктьової) вени»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/peripheral-vein-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'ekstrenka-prakt-laryngeal-mask', name: '«Постановка ларінгеальної маски»', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/laryngeal-mask.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'ekstrenka-prakt-subclavian-vein-catheterization', name: '"Катетеризація підключичної вени"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/subclavian-vein-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'ekstrenka-prakt-intraosseous-access', name: '"Внутрішньокістковий доступ"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/intraosseous-access.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'ekstrenka-prakt-needle-decompression', name: '"Голкова декомпресія"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/needle-decompression.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'ekstrenka-prakt-peripheral-vein-catheterization', name: '"Катетеризація периферичної(ліктьової) вени"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/peripheral-vein-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'ekstrenka-prakt-laryngeal-mask', name: '"Постановка ларінгеальної маски"', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/laryngeal-mask.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'ekstrenka-prakt-glycemia-measurement', name: 'Визначення рівня глікемії, гіпоглікемія', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/glycemia-measurement.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'ekstrenka-prakt-oropharyngeal-airway', name: 'Встановлення орофарингеального повітряпроводу', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/oropharyngeal-airway.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'ekstrenka-prakt-upper-limb-immobilization', name: 'Іммобілізація верхньої кінцівки', type: 'file', icon: FileText, path: '/pdfs/ekstrenka/prakt/upper-limb-immobilization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
@@ -91,7 +91,7 @@ const vmKlinFiles: FileNode[] = [
   { id: 'vm-klin-t-infectious-mononucleosis', name: 'Інфекційний мононуклеоз', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-infectious-mononucleosis.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'vm-klin-t-infective-endocarditis', name: 'Інфекційний ендокардит', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-infective-endocarditis.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'vm-klin-t-community-acquired-pneumonia', name: 'Негоспітальна пневмонія', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-community-acquired-pneumonia.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
-  { id: 'vm-klin-t-urolithiasis', name: 'Сечокам’яна хвороба', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-urolithiasis.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
+  { id: 'vm-klin-t-urolithiasis', name: "Сечокам'яна хвороба", type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-urolithiasis.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'vm-klin-t-chronic-hepatitis-c', name: 'Хронічний вірусний гепатит С', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-chronic-hepatitis-c.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'vm-klin-t-shigellosis', name: 'Шигельоз', type: 'file', icon: FileText, path: '/pdfs/vm/klin/t-shigellosis.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
 ];
@@ -105,7 +105,7 @@ const vmPraktFiles: FileNode[] = [
   { id: 'vm-prakt-infective-endocarditis', name: 'Інфекційний ендокардит', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-infective-endocarditis.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'vm-prakt-infectious-mononucleosis', name: 'Інфекційний мононуклеоз', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-infectious-mononucleosis.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'vm-prakt-community-acquired-pneumonia', name: 'Негоспітальна пневмонія', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-community-acquired-pneumonia.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'vm-prakt-urolithiasis', name: 'Сечокам’яна хвороба', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-urolithiasis.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'vm-prakt-urolithiasis', name: "Сечокам'яна хвороба", type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-urolithiasis.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'vm-prakt-chronic-hepatitis-c', name: 'Хронічний вірусний гепатит С', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-chronic-hepatitis-c.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'vm-prakt-shigellosis', name: 'Шигельоз', type: 'file', icon: FileText, path: '/pdfs/vm/prakt/p-shigellosis.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
 ];
@@ -144,7 +144,7 @@ const khirurgiyaKlinFiles: FileNode[] = [
   { id: 'khirurgiya-klin-foley-catheterization', name: 'Катетеризація сечового міхура катетером Фолея', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/foley-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-cricothyrotomy', name: 'Конікотомія', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/cricothyrotomy.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-cervical-collar', name: 'Накладання коміру Шанца', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/cervical-collar.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
-  { id: 'khirurgiya-klin-occlusive-dressing', name: 'Накладання оклюзійної пов’язки', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/occlusive-dressing.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
+  { id: 'khirurgiya-klin-occlusive-dressing', name: "Накладання оклюзійної пов'язки", type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/occlusive-dressing.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-cat-tourniquet', name: 'Накладання турнікета CAT', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/cat-tourniquet.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-skin-sutures', name: 'Накладання шкірних швів', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/skin-sutures.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-breast-examination', name: 'Пальпація молочних залоз', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/breast-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
@@ -156,7 +156,7 @@ const khirurgiyaPraktFiles: FileNode[] = [
   { id: 'khirurgiya-prakt-cervical-collar', name: 'Накладання коміру Шанца', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/cervical-collar.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'khirurgiya-prakt-cricothyrotomy', name: 'Конікотомія', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/cricothyrotomy.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'khirurgiya-prakt-foley-catheterization', name: 'Катетеризація сечового міхура катетером Фолея', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/foley-catheterization.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
-  { id: 'khirurgiya-prakt-occlusive-dressing', name: 'Накладання оклюзійної пов’язки', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/occlusive-dressing.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
+  { id: 'khirurgiya-prakt-occlusive-dressing', name: "Накладання оклюзійної пов'язки", type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/occlusive-dressing.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'khirurgiya-prakt-pleural-puncture', name: 'ДІАГНОСТИЧНА ПЛЕВРАЛЬНА ПУНКЦІЯ', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/pleural-puncture.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'khirurgiya-prakt-rectal-examination', name: 'Пальцьове дослідження прямої кишки', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/rectal-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
   { id: 'khirurgiya-prakt-skin-sutures', name: 'Накладання шкірних швів', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/skin-sutures.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
@@ -164,6 +164,15 @@ const khirurgiyaPraktFiles: FileNode[] = [
   { id: 'khirurgiya-prakt-tourniquet', name: 'Накладання турнікета CAT', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/prakt/tourniquet.pdf', contentPreview: DUMMY_FILE_CONTENT_PRACTICAL },
 ];
 
+// Добавляю самостоятельный файл в корень
+const praktNavPediatricsFile: FileNode = {
+  id: 'prakt-nav-pediatrics',
+  name: 'Педіатрія Практичні Навички',
+  type: 'file',
+  icon: FileText,
+  path: '/pdfs/Prakt Nav Pediatrics.pdf',
+  contentPreview: DUMMY_FILE_CONTENT_PRACTICAL,
+};
 
 export const fileStructureData: FileNode[] = [
   {
@@ -276,6 +285,7 @@ export const fileStructureData: FileNode[] = [
       },
     ],
   },
+  praktNavPediatricsFile,
 ];
 
 

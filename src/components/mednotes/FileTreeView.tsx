@@ -44,7 +44,7 @@ interface FileTreeViewProps {
   toggleFolder: (folderId: string) => void;
 }
 
-const LOCAL_STORAGE_KEY = 'mednotes-folder-order';
+const LOCAL_STORAGE_KEY = 'mednotes-subfolder-order';
 
 function reorder<T>(list: T[], startIndex: number, endIndex: number): T[] {
   const result = Array.from(list);
@@ -52,6 +52,18 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number): T[] {
   result.splice(endIndex, 0, removed);
   return result;
 }
+
+// Получить все подпапки (клиническая/практическая) верхнего уровня
+const getAllSubfolders = (nodes: FileNode[]) => {
+  return nodes.flatMap(folder =>
+    (folder.children || []).filter(child => child.type === 'folder').map(sub => ({
+      id: sub.id,
+      name: `${folder.name} — ${sub.name}`,
+      node: sub,
+      parent: folder,
+    }))
+  );
+};
 
 const FileTreeView: React.FC<FileTreeViewProps> = ({
   nodes,
@@ -67,8 +79,8 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // drag-and-drop state
-  const [rootOrder, setRootOrder] = React.useState<string[]>([]);
-  const [liveOrder, setLiveOrder] = React.useState<string[] | null>(null);
+  const [subfolderOrder, setSubfolderOrder] = React.useState<string[]>([]);
+  const [liveSubfolderOrder, setLiveSubfolderOrder] = React.useState<string[] | null>(null);
   const dragItem = useRef<number | null>(null);
   const dragOverItem = useRef<number | null>(null);
   const [draggedIdx, setDraggedIdx] = React.useState<number | null>(null);
@@ -82,101 +94,65 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
   // Модалка с инструкцией
   const [showHelp, setShowHelp] = React.useState(false);
 
-  // Инициализация порядка из localStorage
+  // Состояние для раскрытия подпапок
+  const [expandedSubfolders, setExpandedSubfolders] = useState<Set<string>>(new Set());
+
+  // Состояние для раскрытия подпапок в итоговом списке выбора
+  const [expandedUnknownFolders, setExpandedUnknownFolders] = useState<Set<string>>(new Set());
+
+  // Получить одиночные файлы из корня
+  const rootFiles = nodes.filter(n => n.type === 'file');
+
+  // Инициализация порядка подпапок из localStorage
   useEffect(() => {
+    const allSubfolders = getAllSubfolders(nodes);
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
-      setRootOrder(JSON.parse(saved));
+      const savedOrder = JSON.parse(saved);
+      // Сохраняем только те, что есть сейчас
+      const filtered = savedOrder.filter((id: string) => allSubfolders.some(sf => sf.id === id));
+      // Добавляем новые подпапки в конец
+      const missing = allSubfolders.filter(sf => !filtered.includes(sf.id)).map(sf => sf.id);
+      setSubfolderOrder([...filtered, ...missing]);
     } else {
-      setRootOrder(nodes.map(n => n.id));
+      setSubfolderOrder(allSubfolders.map(sf => sf.id));
     }
   }, [nodes]);
 
-  // Сохраняем порядок при изменении
+  // Сохраняем порядок подпапок при изменении
   useEffect(() => {
-    if (rootOrder.length) {
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(rootOrder));
+    if (subfolderOrder.length) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(subfolderOrder));
     }
-  }, [rootOrder]);
+  }, [subfolderOrder]);
 
-  // Получаем отсортированные корневые папки
-  const orderedNodes = React.useMemo(() => {
-    const order = liveOrder || rootOrder;
-    if (!order.length) return nodes;
-    const idToNode = Object.fromEntries(nodes.map(n => [n.id, n]));
-    return order.map(id => idToNode[id]).filter(Boolean);
-  }, [nodes, rootOrder, liveOrder]);
-
-  // DnD обработчики
-  const handleDragStart = (idx: number) => {
-    dragItem.current = idx;
-    setDraggedIdx(idx);
-    setLiveOrder(rootOrder);
-  };
-  const handleDragEnter = (idx: number) => {
-    dragOverItem.current = idx;
-    setHoverIdx(idx);
-    // Live-перестановка
-    if (dragItem.current !== null && dragItem.current !== idx && liveOrder) {
-      setLiveOrder(prev => prev ? reorder(prev, dragItem.current!, idx) : null);
-      dragItem.current = idx;
-    }
-  };
-  const handleDragEnd = () => {
-    if (liveOrder) setRootOrder(liveOrder);
-    setLiveOrder(null);
-    setDraggedIdx(null);
-    setHoverIdx(null);
-    dragItem.current = null;
-    dragOverItem.current = null;
-  };
-
-  // Поиск по всем PDF-файлам
-  const handleTextSearch = useCallback(async (term: string) => {
-    if (!term.trim()) {
-      setSearchResults([]);
-      setShowDropdown(false);
-      return;
-    }
-    setShowDropdown(true);
-    // Новый поиск по серверу
-    const res = await fetch(`/api/pdf-search?q=${encodeURIComponent(term)}`);
-    const data = await res.json();
-    setSearchResults(data);
-    setShowDropdown(data.length > 0);
-  }, []);
-
-  // Обработка клика по результату поиска
-  const handleResultClick = useCallback((result: { path: string; preview: string }) => {
-    setShowDropdown(false);
-    setSearchResults([]);
-    // Находим FileNode по пути
-    const findByPath = (nodes: FileNode[], path: string): FileNode | null => {
-      for (const node of nodes) {
-        if (node.type === 'file' && node.path === path) return node;
-        if (node.children) {
-          const found = findByPath(node.children, path);
-          if (found) return found;
-        }
-      }
-      return null;
-    };
-    const file = findByPath(nodes, result.path);
-    if (file) onFileSelect(file);
-  }, [nodes, onFileSelect]);
-
-  // Получить все подпапки (клиническая/практическая) верхнего уровня
-  const getSubfolders = (nodes: FileNode[]) => {
-    return nodes.flatMap(folder =>
-      (folder.children || []).filter(child => child.type === 'folder').map(child => ({
-        parent: folder,
-        sub: child
-      }))
-    );
-  };
+  const orderedSubfolders = React.useMemo(() => {
+    const allSubfolders = getAllSubfolders(nodes);
+    const idToSubfolder: Record<string, ReturnType<typeof getAllSubfolders>[number]> = Object.fromEntries(allSubfolders.map(sf => [sf.id, sf]));
+    const order = liveSubfolderOrder || subfolderOrder;
+    return order.map((id: string) => idToSubfolder[id]).filter(Boolean);
+  }, [nodes, subfolderOrder, liveSubfolderOrder]);
 
   // Получить выбранные станции (PDF-файлы)
   const chosenFiles = Object.values(selectedStations).filter(Boolean) as FileNode[];
+
+  const toggleSubfolder = (id: string) => {
+    setExpandedSubfolders(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const toggleUnknownFolder = (id: string) => {
+    setExpandedUnknownFolders(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   return (
     <ScrollArea className="h-full flex-1">
@@ -198,7 +174,7 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
               >×</button>
               <h2 className="text-2xl font-bold mb-4">Как работать со станциями?</h2>
               <ul className="list-disc pl-5 space-y-2 text-base text-justify">
-                <li><span role="img" aria-label="drag">🖱️</span> <b>Перемещение разделов:</b> Чтобы изменить порядок разделов (например, "Акушерство", "Педиатрия"), тяните их за иконку <span className="inline-block align-middle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-grip-vertical inline"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg></span> справа от названия. Порядок меняется в реальном времени и сохраняется автоматически.</li>
+                <li><span role="img" aria-label="drag">🖱️</span> <b>Перемещение станций:</b> Теперь можно менять порядок всех клинических и практических станций независимо друг от друга. Просто тяните нужную станцию за иконку справа от названия.</li>
                 <li><span role="img" aria-label="target">🎯</span> <b>Режим "Я знаю, какие будут станции":</b> Нажмите эту кнопку, чтобы выбрать по одной задаче из каждой подпапки (клиническая и практическая для каждого раздела). После выбора вы сможете быстро переключаться только между этими задачами.</li>
                 <li><span role="img" aria-label="lightbulb">💡</span> <b>Зачем это нужно?</b> Такой режим будет полезен, если вам уже известно, какие задачи будут ждать вас на экзамене. Выберите 10 задач и переключайтесь только между ними, чтобы сэкономить время. При этом поиск по прежнему работает по всем файлам и у вас будет возможность найти и открыть любой другой файл при необходимости.</li>
               </ul>
@@ -216,92 +192,174 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
         >
           {selectMode ? 'Выйти из режима выбора станций' : 'Я знаю, какие будут станции'}
         </Button>
-        {selectMode ? (
-          <>
-            {getSubfolders(orderedNodes).map(({ parent, sub }) => (
-              <div key={sub.id} className="mb-2 border rounded p-2 bg-muted">
-                <div className="font-semibold mb-1">{parent.name} — {sub.name}</div>
-                {(sub.children || []).filter(f => f.type === 'file').map(file => (
-                  <label key={file.id} className="flex items-center gap-2 cursor-pointer mb-1">
-                    <input
-                      type="radio"
-                      name={sub.id}
-                      checked={selectedStations[sub.id]?.id === file.id}
-                      onChange={() => setSelectedStations(prev => ({ ...prev, [sub.id]: file }))}
-                    />
-                    <span>{file.name}</span>
-                  </label>
-                ))}
+        {/* Одиночные файлы из корня */}
+        {rootFiles.length > 0 && (
+          <div className="mb-4">
+            <div className="text-xs text-gray-500 mb-1">Отдельные файлы</div>
+            {rootFiles.map(file => (
+              <div
+                key={file.id}
+                className={`mb-1 flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
+                onClick={() => onFileSelect(file)}
+              >
+                <span className="mr-2">{file.icon && React.createElement(file.icon, { size: 16 })}</span>
+                <span>{file.name}</span>
               </div>
             ))}
-            {chosenFiles.length === getSubfolders(orderedNodes).length && (
-              <div className="mt-4">
-                <div className="font-bold mb-2">Выбранные станции:</div>
-                {chosenFiles.map(file => (
-                  <div
-                    key={file.id}
-                    className="p-2 bg-white rounded shadow mb-2 cursor-pointer hover:bg-blue-50"
-                    onClick={() => onFileSelect(file)}
-                  >
-                    {file.name}
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        ) : (
-          orderedNodes.map((node, idx) => {
-            const isDragging = draggedIdx === idx;
-            const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
-            return (
+            <hr className="my-2 border-gray-300" />
+          </div>
+        )}
+        {/* Список подпапок (станций) */}
+        <div className="text-xs text-gray-500 mb-1">Станции</div>
+        {!selectMode && orderedSubfolders.map((sf, idx) => {
+          const isDragging = draggedIdx === idx;
+          const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
+          return (
+            <div key={sf.id}>
               <div
-                key={node.id}
-                className={`mb-1 flex items-center group ${isDragging ? 'bg-blue-100 shadow-lg' : ''} ${isOver ? 'ring-2 ring-blue-400' : ''}`}
+                className={`mb-1 flex items-center group`}
                 style={{ borderRadius: 6 }}
-                onDragOver={e => {
-                  e.preventDefault();
-                  if (draggedIdx !== null && draggedIdx !== idx && liveOrder) {
-                    setHoverIdx(idx);
-                    setLiveOrder(prev => prev ? reorder(prev, draggedIdx, idx) : null);
-                    setDraggedIdx(idx);
-                  }
-                }}
-                onDrop={() => {
-                  if (draggedIdx !== null && liveOrder) {
-                    setRootOrder(liveOrder);
-                  }
-                  setLiveOrder(null);
-                  setDraggedIdx(null);
-                  setHoverIdx(null);
-                  dragItem.current = null;
-                  dragOverItem.current = null;
-                }}
               >
-                <div className="flex-1">
-                  <FileTreeItem
-                    node={node}
-                    onFileSelect={onFileSelect}
-                    selectedFileId={selectedFileId}
-                    searchTerm={searchTerm}
-                    expandedFolders={expandedFolders}
-                    toggleFolder={toggleFolder}
-                    level={0}
-                  />
+                <div
+                  className={`flex-1 font-semibold flex items-center gap-2 cursor-pointer select-none`}
+                  onClick={() => toggleSubfolder(sf.id)}
+                >
+                  <span>{sf.name}</span>
+                  <span className="ml-1 text-xs">{expandedSubfolders.has(sf.id) ? '▼' : '▶'}</span>
                 </div>
                 <span
                   draggable
                   onDragStart={() => {
-                    handleDragStart(idx);
+                    dragItem.current = idx;
+                    setDraggedIdx(idx);
+                    setLiveSubfolderOrder(subfolderOrder);
                   }}
-                  onDragEnd={handleDragEnd}
-                  className="ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab"
-                  title="Перетащить раздел"
+                  onDragEnd={() => {
+                    if (liveSubfolderOrder) setSubfolderOrder(liveSubfolderOrder);
+                    setLiveSubfolderOrder(null);
+                    setDraggedIdx(null);
+                    setHoverIdx(null);
+                    dragItem.current = null;
+                    dragOverItem.current = null;
+                  }}
+                  onDragOver={e => {
+                    e.preventDefault();
+                    if (draggedIdx !== null && draggedIdx !== idx && liveSubfolderOrder) {
+                      setHoverIdx(idx);
+                      setLiveSubfolderOrder(prev => prev ? reorder(prev, draggedIdx, idx) : null);
+                      setDraggedIdx(idx);
+                    }
+                  }}
+                  onDrop={() => {
+                    if (draggedIdx !== null && liveSubfolderOrder) {
+                      setSubfolderOrder(liveSubfolderOrder);
+                    }
+                    setLiveSubfolderOrder(null);
+                    setDraggedIdx(null);
+                    setHoverIdx(null);
+                    dragItem.current = null;
+                    dragOverItem.current = null;
+                  }}
+                  className={`ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab ${isDragging ? 'bg-blue-100 shadow-lg' : ''} ${isOver ? 'ring-2 ring-blue-400' : ''}`}
+                  title="Перетащить станцию"
                 >
                   <GripVertical />
                 </span>
               </div>
-            );
-          })
+              {expandedSubfolders.has(sf.id) && (
+                <div className="ml-4 mb-2">
+                  {(sf.node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                    <div
+                      key={file.id}
+                      className={`py-1 px-2 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
+                      onClick={e => {
+                        e.stopPropagation();
+                        onFileSelect(file);
+                      }}
+                    >
+                      {file.name}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {selectMode && (
+          <>
+            {orderedSubfolders.map(({ parent, node }) => (
+              <div key={node.id} className="mb-2 border rounded p-2 bg-muted">
+                <div className="font-semibold mb-1">{parent.name} — {node.name}</div>
+                {(node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                  <label key={file.id} className="flex items-center gap-2 cursor-pointer mb-1">
+                    <input
+                      type="radio"
+                      name={node.id}
+                      checked={selectedStations[node.id]?.id === file.id}
+                      onChange={() => setSelectedStations(prev => ({ ...prev, [node.id]: file }))}
+                    />
+                    <span>{file.name}</span>
+                  </label>
+                ))}
+                {/* Вариант "Не знаю задачи для этой станции" */}
+                <label className="flex items-center gap-2 cursor-pointer mb-1 text-gray-500">
+                  <input
+                    type="radio"
+                    name={node.id}
+                    checked={!selectedStations[node.id]}
+                    onChange={() => setSelectedStations(prev => ({ ...prev, [node.id]: null }))}
+                  />
+                  <span>Не знаю задачи для этой станции</span>
+                </label>
+              </div>
+            ))}
+            {/* Итоговый список выбранных станций */}
+            {Object.keys(selectedStations).length === orderedSubfolders.length && (
+              <div className="mt-4">
+                <div className="font-bold mb-2">Выбранные станции:</div>
+                {orderedSubfolders.map(({ node, parent }) => {
+                  const file = selectedStations[node.id];
+                  if (file) {
+                    return (
+                      <div
+                        key={file.id}
+                        className="p-2 bg-white rounded shadow mb-2 cursor-pointer hover:bg-blue-50"
+                        onClick={() => onFileSelect(file)}
+                      >
+                        {file.name}
+                      </div>
+                    );
+                  } else {
+                    // Не выбрана задача — показываем подпапку
+                    return (
+                      <div key={node.id}>
+                        <div
+                          className="p-2 bg-gray-100 rounded shadow mb-2 cursor-pointer hover:bg-blue-50 flex items-center justify-between"
+                          onClick={() => toggleUnknownFolder(node.id)}
+                        >
+                          <span>{parent.name} — {node.name}</span>
+                          <span className="ml-2 text-xs">{expandedUnknownFolders.has(node.id) ? '▼' : '▶'}</span>
+                        </div>
+                        {expandedUnknownFolders.has(node.id) && (
+                          <div className="ml-4 mb-2">
+                            {(node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                              <div
+                                key={file.id}
+                                className="py-1 px-2 rounded cursor-pointer hover:bg-blue-50"
+                                onClick={() => onFileSelect(file)}
+                              >
+                                {file.name}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+            )}
+          </>
         )}
       </SidebarMenu>
     </ScrollArea>

@@ -28,9 +28,24 @@ async function indexPdfs() {
     try {
       const data = fs.readFileSync(file);
       const parsed = await pdfParse(data);
+      // parsed.text - весь текст, parsed.numpages, parsed.info, parsed.metadata, parsed.version
+      // parsed.texts - массив по страницам (если есть)
+      let pages = [];
+      if (parsed.text && parsed.text.length > 0 && parsed.numpages && parsed.numpages > 1 && parsed.hasOwnProperty('text')) {
+        // Если есть разбивка по страницам (pdf-parse >=1.1.1)
+        if (parsed.hasOwnProperty('pages') && Array.isArray(parsed.pages)) {
+          pages = parsed.pages;
+        } else if (parsed.hasOwnProperty('text') && typeof parsed.text === 'string') {
+          // Если нет разбивки, делим по \f (form feed)
+          pages = parsed.text.split('\f');
+        }
+      } else if (parsed.text) {
+        pages = [parsed.text];
+      }
       index.push({
         path: '/' + relPath,
         text: parsed.text,
+        pages: pages,
       });
       console.log('Indexed:', relPath);
     } catch (e) {
