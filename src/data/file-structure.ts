@@ -148,7 +148,7 @@ const khirurgiyaKlinFiles: FileNode[] = [
   { id: 'khirurgiya-klin-cat-tourniquet', name: 'Накладання турнікета CAT', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/cat-tourniquet.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-skin-sutures', name: 'Накладання шкірних швів', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/skin-sutures.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
   { id: 'khirurgiya-klin-breast-examination', name: 'Пальпація молочних залоз', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/breast-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
-  // { id: 'khirurgiya-klin-rectal-examination', name: 'Пальцьове дослідження прямої кишки', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/Пальцьове дослідження прямої кишки.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
+  { id: 'khirurgiya-klin-rectal-examination', name: 'Пальцьове дослідження прямої кишки', type: 'file', icon: FileText, path: '/pdfs/khirurgiya/klin/rectal-examination.pdf', contentPreview: DUMMY_FILE_CONTENT_CLINICAL },
 ];
 
 const khirurgiyaPraktFiles: FileNode[] = [
