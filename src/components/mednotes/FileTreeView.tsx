@@ -5,7 +5,7 @@ import FileTreeItem from './FileTreeItem';
 import type { FileNode } from '@/types';
 import { SidebarMenu } from '@/components/ui/sidebar';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { GripVertical } from 'lucide-react';
+import { GripVertical, ClipboardType, ListChecks, Baby, BriefcaseMedical, Stethoscope, Scissors, Siren, UserCheck, UserPlus, HeartPulse, Syringe, Ambulance, BookOpenCheck, BookOpen, UserCog, User, UserSquare, UserCircle, User2, UserPlus2, UserCheck2, UserRoundCheck, UserRoundPlus, UserRound, UserRoundCog, UserRoundSearch, UserRoundX, UserRoundMinus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import * as ReactDOM from 'react-dom';
 
@@ -194,38 +194,67 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
         </Button>
         {/* Одиночные файлы из корня */}
         {rootFiles.length > 0 && (
-          <div className="mb-4">
-            <div className="text-xs text-gray-500 mb-1">Отдельные файлы</div>
+          <div className="mb-1">
+            <div className="text-[11px] text-gray-500 mb-0.5">Отдельные файлы</div>
             {rootFiles.map(file => (
               <div
                 key={file.id}
-                className={`mb-1 flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
+                className={`flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
                 onClick={() => onFileSelect(file)}
               >
-                <span className="mr-2">{file.icon && React.createElement(file.icon, { size: 16 })}</span>
+                <span className="mr-2">{file.icon && React.createElement(file.icon, { size: 14 })}</span>
                 <span>{file.name}</span>
               </div>
             ))}
-            <hr className="my-2 border-gray-300" />
+            <hr className="my-1 border-gray-300" />
           </div>
         )}
         {/* Список подпапок (станций) */}
-        <div className="text-xs text-gray-500 mb-1">Станции</div>
+        <div className="text-[11px] text-gray-500 mb-0.5">Станции</div>
         {!selectMode && orderedSubfolders.map((sf, idx) => {
           const isDragging = draggedIdx === idx;
           const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
+          const isKlin = sf.node.name.toLowerCase().includes('клиническ');
+          const isPrakt = sf.node.name.toLowerCase().includes('практическ');
+          // Определяем родительский раздел
+          const parentName = sf.parent.name.toLowerCase();
+          let IconComponent = ClipboardType;
+          // Уникальные иконки для каждой пары станций
+          if (parentName.includes('педіатр') || parentName.includes('педиатр')) {
+            IconComponent = isKlin ? Baby : BookOpenCheck;
+          } else if (parentName.includes('акушер')) {
+            IconComponent = isKlin ? BriefcaseMedical : Syringe;
+          } else if (parentName.includes('внутрішня') || parentName.includes('внутренняя')) {
+            IconComponent = isKlin ? Stethoscope : HeartPulse;
+          } else if (parentName.includes('хирург')) {
+            IconComponent = isKlin ? Scissors : UserCheck;
+          } else if (parentName.includes('екстрен') || parentName.includes('экстрен')) {
+            IconComponent = isKlin ? Siren : Ambulance;
+          }
           return (
-            <div key={sf.id}>
-              <div
-                className={`mb-1 flex items-center group`}
-                style={{ borderRadius: 6 }}
-              >
+            <div key={sf.id}
+              className="bg-sidebar-accent/60 border border-sidebar-border rounded-md mb-0.5 mt-1 p-0.5 transition-colors"
+            >
+              <div className="flex items-center group">
                 <div
-                  className={`flex-1 font-semibold flex items-center gap-2 cursor-pointer select-none`}
+                  className="flex-1 font-medium flex items-center gap-0 cursor-pointer select-none text-xs"
                   onClick={() => toggleSubfolder(sf.id)}
                 >
+                  {/* Уникальная иконка подпапки с цветным фоном */}
+                  <span
+                    className={
+                      `inline-flex items-center justify-center rounded-full mr-1 h-5 w-5 ` +
+                      (isKlin
+                        ? 'bg-blue-200 text-blue-800'
+                        : isPrakt
+                        ? 'bg-green-200 text-green-800'
+                        : 'bg-gray-200 text-gray-700')
+                    }
+                  >
+                    <IconComponent className="h-3.5 w-3.5" />
+                  </span>
                   <span>{sf.name}</span>
-                  <span className="ml-1 text-xs">{expandedSubfolders.has(sf.id) ? '▼' : '▶'}</span>
+                  <span className="ml-1 text-[10px]">{expandedSubfolders.has(sf.id) ? '▼' : '▶'}</span>
                 </div>
                 <span
                   draggable
@@ -267,11 +296,11 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
                 </span>
               </div>
               {expandedSubfolders.has(sf.id) && (
-                <div className="ml-4 mb-2">
+                <div className="ml-3 mb-1">
                   {(sf.node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
                     <div
                       key={file.id}
-                      className={`py-1 px-2 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
+                      className={`py-0.5 px-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
                       onClick={e => {
                         e.stopPropagation();
                         onFileSelect(file);

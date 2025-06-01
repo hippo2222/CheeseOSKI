@@ -166,7 +166,7 @@ const akusherstvoPraktFiles = [
     },
     {
         id: 'akusherstvo-prakt-pelvic-measurements',
-        name: 'Вимірювання розмірів нормального тазу та визначення справжньої кон’югати',
+        name: "Вимірювання розмірів нормального тазу та визначення справжньої кон'югати",
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/akusherstvo/prakt/pelvic-measurements.pdf',
@@ -225,7 +225,7 @@ const akusherstvoPraktFiles = [
 const ekstrenkaKlinFiles = [
     {
         id: 'ekstrenka-klin-cardiogenic-shock',
-        name: '«Кардіогенний шок»',
+        name: '"Кардіогенний шок"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/klin/cardiogenic-shock.pdf',
@@ -291,7 +291,7 @@ const ekstrenkaKlinFiles = [
 const ekstrenkaPraktFiles = [
     {
         id: 'ekstrenka-prakt-subclavian-vein-catheterization',
-        name: '«Катетеризація підключичної вени»',
+        name: '"Катетеризація підключичної вени"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/prakt/subclavian-vein-catheterization.pdf',
@@ -299,7 +299,7 @@ const ekstrenkaPraktFiles = [
     },
     {
         id: 'ekstrenka-prakt-intraosseous-access',
-        name: '«Внутрішньокістковий доступ»',
+        name: '"Внутрішньокістковий доступ"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/prakt/intraosseous-access.pdf',
@@ -307,7 +307,7 @@ const ekstrenkaPraktFiles = [
     },
     {
         id: 'ekstrenka-prakt-needle-decompression',
-        name: '«Голкова декомпресія»',
+        name: '"Голкова декомпресія"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/prakt/needle-decompression.pdf',
@@ -315,7 +315,7 @@ const ekstrenkaPraktFiles = [
     },
     {
         id: 'ekstrenka-prakt-peripheral-vein-catheterization',
-        name: '«Катетеризація периферичної(ліктьової) вени»',
+        name: '"Катетеризація периферичної(ліктьової) вени"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/prakt/peripheral-vein-catheterization.pdf',
@@ -323,7 +323,7 @@ const ekstrenkaPraktFiles = [
     },
     {
         id: 'ekstrenka-prakt-laryngeal-mask',
-        name: '«Постановка ларінгеальної маски»',
+        name: '"Постановка ларінгеальної маски"',
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/ekstrenka/prakt/laryngeal-mask.pdf',
@@ -438,7 +438,7 @@ const vmKlinFiles = [
     },
     {
         id: 'vm-klin-t-urolithiasis',
-        name: 'Сечокам’яна хвороба',
+        name: "Сечокам'яна хвороба",
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/vm/klin/t-urolithiasis.pdf',
@@ -521,7 +521,7 @@ const vmPraktFiles = [
     },
     {
         id: 'vm-prakt-urolithiasis',
-        name: 'Сечокам’яна хвороба',
+        name: "Сечокам'яна хвороба",
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/vm/prakt/p-urolithiasis.pdf',
@@ -753,7 +753,7 @@ const khirurgiyaKlinFiles = [
     },
     {
         id: 'khirurgiya-klin-occlusive-dressing',
-        name: 'Накладання оклюзійної пов’язки',
+        name: "Накладання оклюзійної пов'язки",
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/khirurgiya/klin/occlusive-dressing.pdf',
@@ -819,7 +819,7 @@ const khirurgiyaPraktFiles = [
     },
     {
         id: 'khirurgiya-prakt-occlusive-dressing',
-        name: 'Накладання оклюзійної пов’язки',
+        name: "Накладання оклюзійної пов'язки",
         type: 'file',
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
         path: '/pdfs/khirurgiya/prakt/occlusive-dressing.pdf',
@@ -866,6 +866,15 @@ const khirurgiyaPraktFiles = [
         contentPreview: DUMMY_FILE_CONTENT_PRACTICAL
     }
 ];
+// Добавляю самостоятельный файл в корень
+const praktNavPediatricsFile = {
+    id: 'prakt-nav-pediatrics',
+    name: 'Педіатрія Практичні Навички',
+    type: 'file',
+    icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
+    path: '/pdfs/Prakt Nav Pediatrics.pdf',
+    contentPreview: DUMMY_FILE_CONTENT_PRACTICAL
+};
 const fileStructureData = [
     {
         id: 'akusherstvo',
@@ -976,7 +985,8 @@ const fileStructureData = [
                 children: khirurgiyaPraktFiles
             }
         ]
-    }
+    },
+    praktNavPediatricsFile
 ];
 }}),
 "[project]/src/hooks/use-mobile.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
@@ -2228,21 +2238,30 @@ const SearchBar = ({ placeholder, onSearch })=>{
         columnNumber: 5
     }, this);
 };
-const LOCAL_STORAGE_KEY = 'mednotes-folder-order';
+const LOCAL_STORAGE_KEY = 'mednotes-subfolder-order';
 function reorder(list, startIndex, endIndex) {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
     return result;
 }
+// Получить все подпапки (клиническая/практическая) верхнего уровня
+const getAllSubfolders = (nodes)=>{
+    return nodes.flatMap((folder)=>(folder.children || []).filter((child)=>child.type === 'folder').map((sub)=>({
+                id: sub.id,
+                name: `${folder.name} — ${sub.name}`,
+                node: sub,
+                parent: folder
+            })));
+};
 const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expandedFolders, toggleFolder })=>{
     // Состояния для поиска
     const [searchResults, setSearchResults] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [showDropdown, setShowDropdown] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const dropdownRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     // drag-and-drop state
-    const [rootOrder, setRootOrder] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState([]);
-    const [liveOrder, setLiveOrder] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(null);
+    const [subfolderOrder, setSubfolderOrder] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState([]);
+    const [liveSubfolderOrder, setLiveSubfolderOrder] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(null);
     const dragItem = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const dragOverItem = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [draggedIdx, setDraggedIdx] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(null);
@@ -2253,106 +2272,71 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
     const [selectedStations, setSelectedStations] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState({});
     // Модалка с инструкцией
     const [showHelp, setShowHelp] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(false);
-    // Инициализация порядка из localStorage
+    // Состояние для раскрытия подпапок
+    const [expandedSubfolders, setExpandedSubfolders] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Set());
+    // Состояние для раскрытия подпапок в итоговом списке выбора
+    const [expandedUnknownFolders, setExpandedUnknownFolders] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Set());
+    // Получить одиночные файлы из корня
+    const rootFiles = nodes.filter((n)=>n.type === 'file');
+    // Инициализация порядка подпапок из localStorage
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const allSubfolders = getAllSubfolders(nodes);
         const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (saved) {
-            setRootOrder(JSON.parse(saved));
+            const savedOrder = JSON.parse(saved);
+            // Сохраняем только те, что есть сейчас
+            const filtered = savedOrder.filter((id)=>allSubfolders.some((sf)=>sf.id === id));
+            // Добавляем новые подпапки в конец
+            const missing = allSubfolders.filter((sf)=>!filtered.includes(sf.id)).map((sf)=>sf.id);
+            setSubfolderOrder([
+                ...filtered,
+                ...missing
+            ]);
         } else {
-            setRootOrder(nodes.map((n)=>n.id));
+            setSubfolderOrder(allSubfolders.map((sf)=>sf.id));
         }
     }, [
         nodes
     ]);
-    // Сохраняем порядок при изменении
+    // Сохраняем порядок подпапок при изменении
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (rootOrder.length) {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(rootOrder));
+        if (subfolderOrder.length) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(subfolderOrder));
         }
     }, [
-        rootOrder
+        subfolderOrder
     ]);
-    // Получаем отсортированные корневые папки
-    const orderedNodes = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useMemo(()=>{
-        const order = liveOrder || rootOrder;
-        if (!order.length) return nodes;
-        const idToNode = Object.fromEntries(nodes.map((n)=>[
-                n.id,
-                n
+    const orderedSubfolders = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useMemo(()=>{
+        const allSubfolders = getAllSubfolders(nodes);
+        const idToSubfolder = Object.fromEntries(allSubfolders.map((sf)=>[
+                sf.id,
+                sf
             ]));
-        return order.map((id)=>idToNode[id]).filter(Boolean);
+        const order = liveSubfolderOrder || subfolderOrder;
+        return order.map((id)=>idToSubfolder[id]).filter(Boolean);
     }, [
         nodes,
-        rootOrder,
-        liveOrder
+        subfolderOrder,
+        liveSubfolderOrder
     ]);
-    // DnD обработчики
-    const handleDragStart = (idx)=>{
-        dragItem.current = idx;
-        setDraggedIdx(idx);
-        setLiveOrder(rootOrder);
-    };
-    const handleDragEnter = (idx)=>{
-        dragOverItem.current = idx;
-        setHoverIdx(idx);
-        // Live-перестановка
-        if (dragItem.current !== null && dragItem.current !== idx && liveOrder) {
-            setLiveOrder((prev)=>prev ? reorder(prev, dragItem.current, idx) : null);
-            dragItem.current = idx;
-        }
-    };
-    const handleDragEnd = ()=>{
-        if (liveOrder) setRootOrder(liveOrder);
-        setLiveOrder(null);
-        setDraggedIdx(null);
-        setHoverIdx(null);
-        dragItem.current = null;
-        dragOverItem.current = null;
-    };
-    // Поиск по всем PDF-файлам
-    const handleTextSearch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (term)=>{
-        if (!term.trim()) {
-            setSearchResults([]);
-            setShowDropdown(false);
-            return;
-        }
-        setShowDropdown(true);
-        // Новый поиск по серверу
-        const res = await fetch(`/api/pdf-search?q=${encodeURIComponent(term)}`);
-        const data = await res.json();
-        setSearchResults(data);
-        setShowDropdown(data.length > 0);
-    }, []);
-    // Обработка клика по результату поиска
-    const handleResultClick = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((result)=>{
-        setShowDropdown(false);
-        setSearchResults([]);
-        // Находим FileNode по пути
-        const findByPath = (nodes, path)=>{
-            for (const node of nodes){
-                if (node.type === 'file' && node.path === path) return node;
-                if (node.children) {
-                    const found = findByPath(node.children, path);
-                    if (found) return found;
-                }
-            }
-            return null;
-        };
-        const file = findByPath(nodes, result.path);
-        if (file) onFileSelect(file);
-    }, [
-        nodes,
-        onFileSelect
-    ]);
-    // Получить все подпапки (клиническая/практическая) верхнего уровня
-    const getSubfolders = (nodes)=>{
-        return nodes.flatMap((folder)=>(folder.children || []).filter((child)=>child.type === 'folder').map((child)=>({
-                    parent: folder,
-                    sub: child
-                })));
-    };
     // Получить выбранные станции (PDF-файлы)
     const chosenFiles = Object.values(selectedStations).filter(Boolean);
+    const toggleSubfolder = (id)=>{
+        setExpandedSubfolders((prev)=>{
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+    const toggleUnknownFolder = (id)=>{
+        setExpandedUnknownFolders((prev)=>{
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$scroll$2d$area$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ScrollArea"], {
         className: "h-full flex-1",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SidebarMenu"], {
@@ -2365,7 +2349,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                     children: "Как работать со станциями?"
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                    lineNumber: 184,
+                    lineNumber: 160,
                     columnNumber: 9
                 }, this),
                 showHelp && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createPortal"])(/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2380,7 +2364,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                 children: "×"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 194,
+                                lineNumber: 170,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2388,7 +2372,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                 children: "Как работать со станциями?"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 199,
+                                lineNumber: 175,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2402,101 +2386,22 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                 children: "🖱️"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 177,
                                                 columnNumber: 21
                                             }, this),
                                             " ",
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
-                                                children: "Перемещение разделов:"
+                                                children: "Перемещение станций:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 177,
                                                 columnNumber: 67
                                             }, this),
-                                            ' Чтобы изменить порядок разделов (например, "Акушерство", "Педиатрия"), тяните их за иконку ',
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "inline-block align-middle",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                    width: "18",
-                                                    height: "18",
-                                                    viewBox: "0 0 24 24",
-                                                    fill: "none",
-                                                    stroke: "currentColor",
-                                                    strokeWidth: "2",
-                                                    strokeLinecap: "round",
-                                                    strokeLinejoin: "round",
-                                                    className: "lucide lucide-grip-vertical inline",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "9",
-                                                            cy: "6",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 421
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "9",
-                                                            cy: "12",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 450
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "9",
-                                                            cy: "18",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 480
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "15",
-                                                            cy: "6",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 510
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "15",
-                                                            cy: "12",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 540
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                                                            cx: "15",
-                                                            cy: "18",
-                                                            r: "1"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 201,
-                                                            columnNumber: 571
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 201,
-                                                    columnNumber: 231
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 201,
-                                                columnNumber: 187
-                                            }, this),
-                                            " справа от названия. Порядок меняется в реальном времени и сохраняется автоматически."
+                                            " Теперь можно менять порядок всех клинических и практических станций независимо друг от друга. Просто тяните нужную станцию за иконку справа от названия."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 177,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2507,7 +2412,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                 children: "🎯"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 178,
                                                 columnNumber: 21
                                             }, this),
                                             " ",
@@ -2515,14 +2420,14 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                 children: 'Режим "Я знаю, какие будут станции":'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 178,
                                                 columnNumber: 68
                                             }, this),
                                             " Нажмите эту кнопку, чтобы выбрать по одной задаче из каждой подпапки (клиническая и практическая для каждого раздела). После выбора вы сможете быстро переключаться только между этими задачами."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 178,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2533,7 +2438,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                 children: "💡"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 179,
                                                 columnNumber: 21
                                             }, this),
                                             " ",
@@ -2541,20 +2446,20 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                 children: "Зачем это нужно?"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 179,
                                                 columnNumber: 71
                                             }, this),
                                             " Такой режим будет полезен, если вам уже известно, какие задачи будут ждать вас на экзамене. Выберите 10 задач и переключайтесь только между ними, чтобы сэкономить время. При этом поиск по прежнему работает по всем файлам и у вас будет возможность найти и открыть любой другой файл при необходимости."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 179,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 200,
+                                lineNumber: 176,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2565,23 +2470,23 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                     children: "Понятно"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                    lineNumber: 206,
+                                    lineNumber: 182,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 205,
+                                lineNumber: 181,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                        lineNumber: 193,
+                        lineNumber: 169,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                    lineNumber: 192,
+                    lineNumber: 168,
                     columnNumber: 11
                 }, this), document.body),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2591,12 +2496,184 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                     children: selectMode ? 'Выйти из режима выбора станций' : 'Я знаю, какие будут станции'
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                    lineNumber: 212,
+                    lineNumber: 188,
                     columnNumber: 9
                 }, this),
-                selectMode ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                rootFiles.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mb-4",
                     children: [
-                        getSubfolders(orderedNodes).map(({ parent, sub })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-xs text-gray-500 mb-1",
+                            children: "Отдельные файлы"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                            lineNumber: 198,
+                            columnNumber: 13
+                        }, this),
+                        rootFiles.map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: `mb-1 flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
+                                onClick: ()=>onFileSelect(file),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "mr-2",
+                                        children: file.icon && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].createElement(file.icon, {
+                                            size: 16
+                                        })
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 205,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: file.name
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 206,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, file.id, true, {
+                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                lineNumber: 200,
+                                columnNumber: 15
+                            }, this)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                            className: "my-2 border-gray-300"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                            lineNumber: 209,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                    lineNumber: 197,
+                    columnNumber: 11
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "text-xs text-gray-500 mb-1",
+                    children: "Станции"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                    lineNumber: 213,
+                    columnNumber: 9
+                }, this),
+                !selectMode && orderedSubfolders.map((sf, idx)=>{
+                    const isDragging = draggedIdx === idx;
+                    const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: `mb-1 flex items-center group`,
+                                style: {
+                                    borderRadius: 6
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: `flex-1 font-semibold flex items-center gap-2 cursor-pointer select-none`,
+                                        onClick: ()=>toggleSubfolder(sf.id),
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: sf.name
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                lineNumber: 227,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "ml-1 text-xs",
+                                                children: expandedSubfolders.has(sf.id) ? '▼' : '▶'
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                lineNumber: 228,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 223,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        draggable: true,
+                                        onDragStart: ()=>{
+                                            dragItem.current = idx;
+                                            setDraggedIdx(idx);
+                                            setLiveSubfolderOrder(subfolderOrder);
+                                        },
+                                        onDragEnd: ()=>{
+                                            if (liveSubfolderOrder) setSubfolderOrder(liveSubfolderOrder);
+                                            setLiveSubfolderOrder(null);
+                                            setDraggedIdx(null);
+                                            setHoverIdx(null);
+                                            dragItem.current = null;
+                                            dragOverItem.current = null;
+                                        },
+                                        onDragOver: (e)=>{
+                                            e.preventDefault();
+                                            if (draggedIdx !== null && draggedIdx !== idx && liveSubfolderOrder) {
+                                                setHoverIdx(idx);
+                                                setLiveSubfolderOrder((prev)=>prev ? reorder(prev, draggedIdx, idx) : null);
+                                                setDraggedIdx(idx);
+                                            }
+                                        },
+                                        onDrop: ()=>{
+                                            if (draggedIdx !== null && liveSubfolderOrder) {
+                                                setSubfolderOrder(liveSubfolderOrder);
+                                            }
+                                            setLiveSubfolderOrder(null);
+                                            setDraggedIdx(null);
+                                            setHoverIdx(null);
+                                            dragItem.current = null;
+                                            dragOverItem.current = null;
+                                        },
+                                        className: `ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab ${isDragging ? 'bg-blue-100 shadow-lg' : ''} ${isOver ? 'ring-2 ring-blue-400' : ''}`,
+                                        title: "Перетащить станцию",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grip$2d$vertical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__GripVertical$3e$__["GripVertical"], {}, void 0, false, {
+                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                            lineNumber: 266,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 230,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                lineNumber: 219,
+                                columnNumber: 15
+                            }, this),
+                            expandedSubfolders.has(sf.id) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "ml-4 mb-2",
+                                children: (sf.node.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: `py-1 px-2 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
+                                        onClick: (e)=>{
+                                            e.stopPropagation();
+                                            onFileSelect(file);
+                                        },
+                                        children: file.name
+                                    }, file.id, false, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 272,
+                                        columnNumber: 21
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                lineNumber: 270,
+                                columnNumber: 17
+                            }, this)
+                        ]
+                    }, sf.id, true, {
+                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                        lineNumber: 218,
+                        columnNumber: 13
+                    }, this);
+                }),
+                selectMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                    children: [
+                        orderedSubfolders.map(({ parent, node })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "mb-2 border rounded p-2 bg-muted",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2604,49 +2681,78 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                         children: [
                                             parent.name,
                                             " — ",
-                                            sub.name
+                                            node.name
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 292,
                                         columnNumber: 17
                                     }, this),
-                                    (sub.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    (node.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "flex items-center gap-2 cursor-pointer mb-1",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                     type: "radio",
-                                                    name: sub.id,
-                                                    checked: selectedStations[sub.id]?.id === file.id,
+                                                    name: node.id,
+                                                    checked: selectedStations[node.id]?.id === file.id,
                                                     onChange: ()=>setSelectedStations((prev)=>({
                                                                 ...prev,
-                                                                [sub.id]: file
+                                                                [node.id]: file
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 226,
+                                                    lineNumber: 295,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: file.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 301,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, file.id, true, {
                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                            lineNumber: 225,
+                                            lineNumber: 294,
                                             columnNumber: 19
-                                        }, this))
+                                        }, this)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex items-center gap-2 cursor-pointer mb-1 text-gray-500",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "radio",
+                                                name: node.id,
+                                                checked: !selectedStations[node.id],
+                                                onChange: ()=>setSelectedStations((prev)=>({
+                                                            ...prev,
+                                                            [node.id]: null
+                                                        }))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                lineNumber: 306,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "Не знаю задачи для этой станции"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                lineNumber: 312,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                        lineNumber: 305,
+                                        columnNumber: 17
+                                    }, this)
                                 ]
-                            }, sub.id, true, {
+                            }, node.id, true, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 222,
+                                lineNumber: 291,
                                 columnNumber: 15
                             }, this)),
-                        chosenFiles.length === getSubfolders(orderedNodes).length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        Object.keys(selectedStations).length === orderedSubfolders.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mt-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2654,106 +2760,115 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                     children: "Выбранные станции:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                    lineNumber: 239,
+                                    lineNumber: 319,
                                     columnNumber: 17
                                 }, this),
-                                chosenFiles.map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-2 bg-white rounded shadow mb-2 cursor-pointer hover:bg-blue-50",
-                                        onClick: ()=>onFileSelect(file),
-                                        children: file.name
-                                    }, file.id, false, {
-                                        fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 241,
-                                        columnNumber: 19
-                                    }, this))
+                                orderedSubfolders.map(({ node, parent })=>{
+                                    const file = selectedStations[node.id];
+                                    if (file) {
+                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "p-2 bg-white rounded shadow mb-2 cursor-pointer hover:bg-blue-50",
+                                            onClick: ()=>onFileSelect(file),
+                                            children: file.name
+                                        }, file.id, false, {
+                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                            lineNumber: 324,
+                                            columnNumber: 23
+                                        }, this);
+                                    } else {
+                                        // Не выбрана задача — показываем подпапку
+                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "p-2 bg-gray-100 rounded shadow mb-2 cursor-pointer hover:bg-blue-50 flex items-center justify-between",
+                                                    onClick: ()=>toggleUnknownFolder(node.id),
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: [
+                                                                parent.name,
+                                                                " — ",
+                                                                node.name
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                            lineNumber: 340,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "ml-2 text-xs",
+                                                            children: expandedUnknownFolders.has(node.id) ? '▼' : '▶'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                            lineNumber: 341,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                    lineNumber: 336,
+                                                    columnNumber: 25
+                                                }, this),
+                                                expandedUnknownFolders.has(node.id) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "ml-4 mb-2",
+                                                    children: (node.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "py-1 px-2 rounded cursor-pointer hover:bg-blue-50",
+                                                            onClick: ()=>onFileSelect(file),
+                                                            children: file.name
+                                                        }, file.id, false, {
+                                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                            lineNumber: 346,
+                                                            columnNumber: 31
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                    lineNumber: 344,
+                                                    columnNumber: 27
+                                                }, this)
+                                            ]
+                                        }, node.id, true, {
+                                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                            lineNumber: 335,
+                                            columnNumber: 23
+                                        }, this);
+                                    }
+                                })
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                            lineNumber: 238,
+                            lineNumber: 318,
                             columnNumber: 15
                         }, this)
                     ]
-                }, void 0, true) : orderedNodes.map((node, idx)=>{
-                    const isDragging = draggedIdx === idx;
-                    const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
-                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: `mb-1 flex items-center group ${isDragging ? 'bg-blue-100 shadow-lg' : ''} ${isOver ? 'ring-2 ring-blue-400' : ''}`,
-                        style: {
-                            borderRadius: 6
-                        },
-                        onDragOver: (e)=>{
-                            e.preventDefault();
-                            if (draggedIdx !== null && draggedIdx !== idx && liveOrder) {
-                                setHoverIdx(idx);
-                                setLiveOrder((prev)=>prev ? reorder(prev, draggedIdx, idx) : null);
-                                setDraggedIdx(idx);
-                            }
-                        },
-                        onDrop: ()=>{
-                            if (draggedIdx !== null && liveOrder) {
-                                setRootOrder(liveOrder);
-                            }
-                            setLiveOrder(null);
-                            setDraggedIdx(null);
-                            setHoverIdx(null);
-                            dragItem.current = null;
-                            dragOverItem.current = null;
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex-1",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mednotes$2f$FileTreeItem$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                    node: node,
-                                    onFileSelect: onFileSelect,
-                                    selectedFileId: selectedFileId,
-                                    searchTerm: searchTerm,
-                                    expandedFolders: expandedFolders,
-                                    toggleFolder: toggleFolder,
-                                    level: 0
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                    lineNumber: 281,
-                                    columnNumber: 19
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 280,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                draggable: true,
-                                onDragStart: ()=>{
-                                    handleDragStart(idx);
-                                },
-                                onDragEnd: handleDragEnd,
-                                className: "ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab",
-                                title: "Перетащить раздел",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grip$2d$vertical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__GripVertical$3e$__["GripVertical"], {}, void 0, false, {
-                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                    lineNumber: 300,
-                                    columnNumber: 19
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 291,
-                                columnNumber: 17
-                            }, this)
-                        ]
-                    }, node.id, true, {
+                }, void 0, true),
+                nodes.map((node)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-sidebar-accent/60 border border-sidebar-border rounded-lg mb-2 mt-4 p-1 transition-colors",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mednotes$2f$FileTreeItem$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            node: node,
+                            onFileSelect: onFileSelect,
+                            selectedFileId: selectedFileId,
+                            searchTerm: searchTerm,
+                            expandedFolders: expandedFolders,
+                            toggleFolder: toggleFolder,
+                            level: 0
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                            lineNumber: 369,
+                            columnNumber: 13
+                        }, this)
+                    }, node.id, false, {
                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                        lineNumber: 257,
-                        columnNumber: 15
-                    }, this);
-                })
+                        lineNumber: 365,
+                        columnNumber: 11
+                    }, this))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-            lineNumber: 183,
+            lineNumber: 159,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-        lineNumber: 182,
+        lineNumber: 158,
         columnNumber: 5
     }, this);
 };
@@ -2865,8 +2980,119 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$pdfjs$2d$dis
 ;
 // Устанавливаем workerSrc для react-pdf
 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$pdfjs$2d$dist$2f$build$2f$pdf$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__pdfjs$3e$__["pdfjs"].GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
-const PdfViewer = ({ selectedFile })=>{
+const PdfViewer = ({ selectedFile, initialPage = 1, searchText })=>{
     const [numPages, setNumPages] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(0);
+    const pageRefs = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef([]);
+    const [pageRendered, setPageRendered] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(false);
+    const containerRef = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef(null);
+    const [zoom, setZoom] = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(1.0);
+    const handleZoomIn = ()=>setZoom((z)=>Math.min(2.0, +(z + 0.1).toFixed(2)));
+    const handleZoomOut = ()=>setZoom((z)=>Math.max(0.5, +(z - 0.1).toFixed(2)));
+    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
+        if (numPages > 0 && initialPage > 0 && initialPage <= numPages) {
+            const ref = pageRefs.current[initialPage - 1];
+            const container = containerRef.current;
+            if (ref) {
+                if (container) {
+                    const top = ref.offsetTop;
+                    container.scrollTo({
+                        top,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    ref.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }
+        }
+    }, [
+        numPages,
+        initialPage,
+        selectedFile?.path
+    ]);
+    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
+        if (numPages === 0 || !containerRef.current) return;
+        let attempts = 0;
+        const maxAttempts = 20;
+        const interval = 200;
+        function tryScrollToPage() {
+            const ref = pageRefs.current[initialPage - 1];
+            const container = containerRef.current;
+            if (ref && container) {
+                const top = ref.offsetTop;
+                container.scrollTo({
+                    top,
+                    behavior: 'smooth'
+                });
+                return;
+            }
+            attempts++;
+            if (attempts < maxAttempts) setTimeout(tryScrollToPage, interval);
+        }
+        tryScrollToPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        numPages,
+        initialPage,
+        selectedFile?.path
+    ]);
+    // После рендера страницы ищем искомый текст и скроллим к нему (с повторными попытками)
+    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
+        if (!pageRendered) return;
+        if (!searchText) return;
+        const ref = pageRefs.current[initialPage - 1];
+        if (!ref) return;
+        let attempts = 0;
+        let found = false;
+        const maxAttempts = 20;
+        const interval = 200; // мс
+        function tryScrollToText() {
+            if (!ref || !searchText) return;
+            const textSpans = Array.from(ref.querySelectorAll('.react-pdf__Page__textContent span'));
+            if (textSpans.length === 0) {
+                attempts++;
+                if (attempts < maxAttempts) setTimeout(tryScrollToText, interval);
+                return;
+            }
+            // Собираем весь текст страницы
+            const allText = textSpans.map((s)=>s.textContent || '').join('');
+            const search = searchText.replace(/\s+/g, ' ').trim().toLowerCase();
+            const pageText = allText.replace(/\s+/g, ' ').trim().toLowerCase();
+            const idx = pageText.indexOf(search);
+            if (idx === -1) {
+                attempts++;
+                if (attempts < maxAttempts) setTimeout(tryScrollToText, interval);
+                return;
+            }
+            // Определяем, в каком span начинается совпадение
+            let charCount = 0;
+            for (const span of textSpans){
+                const spanText = (span.textContent || '').replace(/\s+/g, ' ');
+                const nextCharCount = charCount + spanText.length;
+                if (charCount <= idx && idx < nextCharCount) {
+                    span.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    found = true;
+                    break;
+                }
+                charCount = nextCharCount;
+            }
+            attempts++;
+            if (!found && attempts < maxAttempts) {
+                setTimeout(tryScrollToText, interval);
+            }
+        }
+        tryScrollToText();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        pageRendered,
+        searchText,
+        initialPage
+    ]);
     if (!selectedFile) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
             className: "h-full flex items-center justify-center shadow-lg",
@@ -2877,17 +3103,17 @@ const PdfViewer = ({ selectedFile })=>{
                     children: "Select a file to view its content."
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                    lineNumber: 25,
+                    lineNumber: 119,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                lineNumber: 24,
+                lineNumber: 118,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-            lineNumber: 23,
+            lineNumber: 117,
             columnNumber: 7
         }, this);
     }
@@ -2901,7 +3127,7 @@ const PdfViewer = ({ selectedFile })=>{
                         className: "mx-auto h-12 w-12 text-destructive mb-4"
                     }, void 0, false, {
                         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                        lineNumber: 35,
+                        lineNumber: 129,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2909,7 +3135,7 @@ const PdfViewer = ({ selectedFile })=>{
                         children: "Cannot display this item."
                     }, void 0, false, {
                         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                        lineNumber: 36,
+                        lineNumber: 130,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2917,52 +3143,92 @@ const PdfViewer = ({ selectedFile })=>{
                         children: "This is a folder or the file path is missing."
                     }, void 0, false, {
                         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                        lineNumber: 37,
+                        lineNumber: 131,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                lineNumber: 34,
+                lineNumber: 128,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-            lineNumber: 33,
+            lineNumber: 127,
             columnNumber: 7
         }, this);
     }
-    const onDocumentLoadSuccess = ({ numPages })=>{
-        setNumPages(numPages);
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
         className: "h-full flex flex-col shadow-lg overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardHeader"], {
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
-                    className: "font-headline text-2xl truncate",
-                    children: selectedFile.name
-                }, void 0, false, {
-                    fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                    lineNumber: 50,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
+                        className: "font-headline text-2xl truncate",
+                        children: selectedFile.name
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
+                        lineNumber: 140,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex gap-2 mt-2",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "px-2 py-1 rounded bg-gray-200 hover:bg-gray-300",
+                                onClick: handleZoomOut,
+                                disabled: zoom <= 0.5,
+                                children: "-"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
+                                lineNumber: 142,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "text-sm w-16 text-center",
+                                children: [
+                                    Math.round(zoom * 100),
+                                    "%"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
+                                lineNumber: 149,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "px-2 py-1 rounded bg-gray-200 hover:bg-gray-300",
+                                onClick: handleZoomIn,
+                                disabled: zoom >= 2.0,
+                                children: "+"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
+                                lineNumber: 150,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
+                        lineNumber: 141,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                lineNumber: 49,
+                lineNumber: 139,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
+                ref: containerRef,
                 className: "flex-1 p-0 relative overflow-auto max-h-[80vh] w-full flex justify-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$pdf$2f$dist$2f$esm$2f$Document$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Document$3e$__["Document"], {
                     file: selectedFile.path,
-                    onLoadSuccess: onDocumentLoadSuccess,
+                    onLoadSuccess: ({ numPages })=>setNumPages(numPages),
                     loading: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "p-8 text-center",
                         children: "Загрузка PDF..."
                     }, void 0, false, {
                         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                        lineNumber: 57,
+                        lineNumber: 163,
                         columnNumber: 20
                     }, void 0),
                     error: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2970,31 +3236,37 @@ const PdfViewer = ({ selectedFile })=>{
                         children: "Ошибка загрузки PDF"
                     }, void 0, false, {
                         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                        lineNumber: 58,
+                        lineNumber: 164,
                         columnNumber: 18
                     }, void 0),
                     children: Array.from(new Array(numPages), (el, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$pdf$2f$dist$2f$esm$2f$Page$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Page$3e$__["Page"], {
                             pageNumber: index + 1,
-                            width: 800
+                            width: 800 * zoom,
+                            inputRef: (ref)=>{
+                                pageRefs.current[index] = ref;
+                            },
+                            onRenderSuccess: ()=>{
+                                if (index + 1 === initialPage) setPageRendered(true);
+                            }
                         }, `page_${index + 1}`, false, {
                             fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                            lineNumber: 61,
+                            lineNumber: 167,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                    lineNumber: 54,
+                    lineNumber: 160,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-                lineNumber: 53,
+                lineNumber: 159,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/mednotes/PdfViewer.tsx",
-        lineNumber: 48,
+        lineNumber: 138,
         columnNumber: 5
     }, this);
 };
@@ -3027,8 +3299,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 function MedNotesHomePage() {
     const [selectedFile, setSelectedFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [initialPage, setInitialPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
     const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [expandedFolders, setExpandedFolders] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Set());
+    const [searchText, setSearchText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(undefined);
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useToast"])();
     const handleFileSelect = (file)=>{
         setSelectedFile(file);
@@ -3126,10 +3400,11 @@ function MedNotesHomePage() {
                 return null;
             };
             const file = findByPath(nodes, result.path);
-            if (file) onFileSelect(file);
+            if (file) onFileSelect(file, result.page, value);
         }, [
             nodes,
-            onFileSelect
+            onFileSelect,
+            value
         ]);
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "relative flex-1 min-w-0",
@@ -3142,7 +3417,7 @@ function MedNotesHomePage() {
                     className: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 132,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this),
                 showDropdown && searchResults.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3170,7 +3445,7 @@ function MedNotesHomePage() {
                                     children: fileNode ? fileNode.name : result.path.split('/').pop()
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 163,
+                                    lineNumber: 165,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3182,25 +3457,25 @@ function MedNotesHomePage() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 164,
+                                    lineNumber: 166,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, result.path + idx, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 158,
+                            lineNumber: 160,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 140,
+                    lineNumber: 142,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 131,
+            lineNumber: 133,
             columnNumber: 7
         }, this);
     }
@@ -3226,7 +3501,7 @@ function MedNotesHomePage() {
                                         className: "h-12 w-12"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 182,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -3234,18 +3509,18 @@ function MedNotesHomePage() {
                                         children: "CheeseOSKI"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 183,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 179,
+                                lineNumber: 181,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 178,
+                            lineNumber: 180,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SidebarContent"], {
@@ -3259,18 +3534,18 @@ function MedNotesHomePage() {
                                 toggleFolder: toggleFolder
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 187,
+                                lineNumber: 189,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 186,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 177,
+                    lineNumber: 179,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SidebarInset"], {
@@ -3283,57 +3558,63 @@ function MedNotesHomePage() {
                                     className: "md:hidden",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {}, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 203,
                                         columnNumber: 16
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 202,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PdfGlobalSearch, {
                                     nodes: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$file$2d$structure$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fileStructureData"],
-                                    onFileSelect: handleFileSelect
+                                    onFileSelect: (file, page, text)=>{
+                                        setSelectedFile(file);
+                                        setInitialPage(page || 1);
+                                        setSearchText(text);
+                                    }
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 203,
+                                    lineNumber: 205,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 199,
+                            lineNumber: 201,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                             className: "flex-1 p-4 md:p-6 overflow-auto",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mednotes$2f$PdfViewer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                selectedFile: selectedFile
+                                selectedFile: selectedFile,
+                                initialPage: initialPage,
+                                searchText: searchText
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 206,
+                                lineNumber: 212,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 205,
+                            lineNumber: 211,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 198,
+                    lineNumber: 200,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 176,
+            lineNumber: 178,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 175,
+        lineNumber: 177,
         columnNumber: 5
     }, this);
 }

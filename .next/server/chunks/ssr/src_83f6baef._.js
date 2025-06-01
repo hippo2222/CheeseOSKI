@@ -2053,6 +2053,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/sidebar.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$scroll$2d$area$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/scroll-area.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grip$2d$vertical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__GripVertical$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/grip-vertical.js [app-ssr] (ecmascript) <export default as GripVertical>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$type$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ClipboardType$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clipboard-type.js [app-ssr] (ecmascript) <export default as ClipboardType>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$baby$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Baby$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/baby.js [app-ssr] (ecmascript) <export default as Baby>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2d$medical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BriefcaseMedical$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/briefcase-medical.js [app-ssr] (ecmascript) <export default as BriefcaseMedical>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$stethoscope$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Stethoscope$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/stethoscope.js [app-ssr] (ecmascript) <export default as Stethoscope>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$scissors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Scissors$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/scissors.js [app-ssr] (ecmascript) <export default as Scissors>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$siren$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Siren$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/siren.js [app-ssr] (ecmascript) <export default as Siren>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user-check.js [app-ssr] (ecmascript) <export default as UserCheck>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2d$pulse$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartPulse$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/heart-pulse.js [app-ssr] (ecmascript) <export default as HeartPulse>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$syringe$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Syringe$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/syringe.js [app-ssr] (ecmascript) <export default as Syringe>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ambulance$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Ambulance$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/ambulance.js [app-ssr] (ecmascript) <export default as Ambulance>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpenCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/book-open-check.js [app-ssr] (ecmascript) <export default as BookOpenCheck>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)");
 'use client';
@@ -2351,10 +2362,10 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                     columnNumber: 9
                 }, this),
                 rootFiles.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-4",
+                    className: "mb-1",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-xs text-gray-500 mb-1",
+                            className: "text-[11px] text-gray-500 mb-0.5",
                             children: "Отдельные файлы"
                         }, void 0, false, {
                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
@@ -2362,13 +2373,13 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                             columnNumber: 13
                         }, this),
                         rootFiles.map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: `mb-1 flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
+                                className: `flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
                                 onClick: ()=>onFileSelect(file),
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "mr-2",
                                         children: file.icon && /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].createElement(file.icon, {
-                                            size: 16
+                                            size: 14
                                         })
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
@@ -2389,7 +2400,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                 columnNumber: 15
                             }, this)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
-                            className: "my-2 border-gray-300"
+                            className: "my-1 border-gray-300"
                         }, void 0, false, {
                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
                             lineNumber: 209,
@@ -2402,7 +2413,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "text-xs text-gray-500 mb-1",
+                    className: "text-[11px] text-gray-500 mb-0.5",
                     children: "Станции"
                 }, void 0, false, {
                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
@@ -2412,37 +2423,66 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                 !selectMode && orderedSubfolders.map((sf, idx)=>{
                     const isDragging = draggedIdx === idx;
                     const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
+                    const isKlin = sf.node.name.toLowerCase().includes('клиническ');
+                    const isPrakt = sf.node.name.toLowerCase().includes('практическ');
+                    // Определяем родительский раздел
+                    const parentName = sf.parent.name.toLowerCase();
+                    let IconComponent = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$type$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ClipboardType$3e$__["ClipboardType"];
+                    // Уникальные иконки для каждой пары станций
+                    if (parentName.includes('педіатр') || parentName.includes('педиатр')) {
+                        IconComponent = isKlin ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$baby$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Baby$3e$__["Baby"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpenCheck$3e$__["BookOpenCheck"];
+                    } else if (parentName.includes('акушер')) {
+                        IconComponent = isKlin ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2d$medical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BriefcaseMedical$3e$__["BriefcaseMedical"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$syringe$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Syringe$3e$__["Syringe"];
+                    } else if (parentName.includes('внутрішня') || parentName.includes('внутренняя')) {
+                        IconComponent = isKlin ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$stethoscope$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Stethoscope$3e$__["Stethoscope"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2d$pulse$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartPulse$3e$__["HeartPulse"];
+                    } else if (parentName.includes('хирург')) {
+                        IconComponent = isKlin ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$scissors$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Scissors$3e$__["Scissors"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"];
+                    } else if (parentName.includes('екстрен') || parentName.includes('экстрен')) {
+                        IconComponent = isKlin ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$siren$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Siren$3e$__["Siren"] : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ambulance$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Ambulance$3e$__["Ambulance"];
+                    }
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-sidebar-accent/60 border border-sidebar-border rounded-md mb-0.5 mt-1 p-0.5 transition-colors",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: `mb-1 flex items-center group`,
-                                style: {
-                                    borderRadius: 6
-                                },
+                                className: "flex items-center group",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: `flex-1 font-semibold flex items-center gap-2 cursor-pointer select-none`,
+                                        className: "flex-1 font-medium flex items-center gap-0 cursor-pointer select-none text-xs",
                                         onClick: ()=>toggleSubfolder(sf.id),
                                         children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: `inline-flex items-center justify-center rounded-full mr-1 h-5 w-5 ` + (isKlin ? 'bg-blue-200 text-blue-800' : isPrakt ? 'bg-green-200 text-green-800' : 'bg-gray-200 text-gray-700'),
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IconComponent, {
+                                                    className: "h-3.5 w-3.5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                    lineNumber: 254,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
+                                                lineNumber: 244,
+                                                columnNumber: 19
+                                            }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: sf.name
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 227,
+                                                lineNumber: 256,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "ml-1 text-xs",
+                                                className: "ml-1 text-[10px]",
                                                 children: expandedSubfolders.has(sf.id) ? '▼' : '▶'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 228,
+                                                lineNumber: 257,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 239,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2482,24 +2522,24 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                         title: "Перетащить станцию",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$grip$2d$vertical$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__GripVertical$3e$__["GripVertical"], {}, void 0, false, {
                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                            lineNumber: 266,
+                                            lineNumber: 295,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 230,
+                                        lineNumber: 259,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 219,
+                                lineNumber: 238,
                                 columnNumber: 15
                             }, this),
                             expandedSubfolders.has(sf.id) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "ml-4 mb-2",
+                                className: "ml-3 mb-1",
                                 children: (sf.node.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: `py-1 px-2 rounded cursor-pointer hover:bg-blue-50 ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
+                                        className: `py-0.5 px-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`,
                                         onClick: (e)=>{
                                             e.stopPropagation();
                                             onFileSelect(file);
@@ -2507,18 +2547,18 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                         children: file.name
                                     }, file.id, false, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 272,
+                                        lineNumber: 301,
                                         columnNumber: 21
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 270,
+                                lineNumber: 299,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, sf.id, true, {
                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                        lineNumber: 218,
+                        lineNumber: 235,
                         columnNumber: 13
                     }, this);
                 }),
@@ -2536,7 +2576,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 292,
+                                        lineNumber: 321,
                                         columnNumber: 17
                                     }, this),
                                     (node.children || []).filter((f)=>f.type === 'file').map((file)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2552,20 +2592,20 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 295,
+                                                    lineNumber: 324,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: file.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 301,
+                                                    lineNumber: 330,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, file.id, true, {
                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                            lineNumber: 294,
+                                            lineNumber: 323,
                                             columnNumber: 19
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2581,26 +2621,26 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                         }))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 306,
+                                                lineNumber: 335,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: "Не знаю задачи для этой станции"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                lineNumber: 312,
+                                                lineNumber: 341,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                        lineNumber: 305,
+                                        lineNumber: 334,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, node.id, true, {
                                 fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                lineNumber: 291,
+                                lineNumber: 320,
                                 columnNumber: 15
                             }, this)),
                         Object.keys(selectedStations).length === orderedSubfolders.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2611,7 +2651,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                     children: "Выбранные станции:"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                    lineNumber: 319,
+                                    lineNumber: 348,
                                     columnNumber: 17
                                 }, this),
                                 orderedSubfolders.map(({ node, parent })=>{
@@ -2623,7 +2663,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                             children: file.name
                                         }, file.id, false, {
                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                            lineNumber: 324,
+                                            lineNumber: 353,
                                             columnNumber: 23
                                         }, this);
                                     } else {
@@ -2642,7 +2682,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 340,
+                                                            lineNumber: 369,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2650,13 +2690,13 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                             children: expandedUnknownFolders.has(node.id) ? '▼' : '▶'
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 341,
+                                                            lineNumber: 370,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 336,
+                                                    lineNumber: 365,
                                                     columnNumber: 25
                                                 }, this),
                                                 expandedUnknownFolders.has(node.id) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2667,18 +2707,18 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                                                             children: file.name
                                                         }, file.id, false, {
                                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                            lineNumber: 346,
+                                                            lineNumber: 375,
                                                             columnNumber: 31
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 373,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, node.id, true, {
                                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                                            lineNumber: 335,
+                                            lineNumber: 364,
                                             columnNumber: 23
                                         }, this);
                                     }
@@ -2686,7 +2726,7 @@ const FileTreeView = ({ nodes, onFileSelect, selectedFileId, searchTerm, expande
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/mednotes/FileTreeView.tsx",
-                            lineNumber: 318,
+                            lineNumber: 347,
                             columnNumber: 15
                         }, this)
                     ]
