@@ -5,6 +5,7 @@ import fs from 'fs';
 const INDEX_PATH = path.join(process.cwd(), 'src/data/pdf-index.json');
 
 let cachedIndex: any = null;
+let cachedMtimeMs: number | null = null;
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -13,9 +14,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json([]);
   }
 
-  if (!cachedIndex) {
+  const stat = fs.statSync(INDEX_PATH);
+  if (!cachedIndex || cachedMtimeMs !== stat.mtimeMs) {
     const indexRaw = fs.readFileSync(INDEX_PATH, 'utf-8');
     cachedIndex = JSON.parse(indexRaw);
+    cachedMtimeMs = stat.mtimeMs;
   }
 
   const index = cachedIndex;

@@ -4,6 +4,7 @@ import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { fileStructureData } from '@/data/file-structure';
 import type { FileNode } from '@/types';
 import FileTreeView from '@/components/mednotes/FileTreeView';
+import HeaderUtilityButtons from '@/components/mednotes/HeaderUtilityButtons';
 import PdfViewer from '@/components/mednotes/PdfViewer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,10 +25,13 @@ export default function MedNotesHomePage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
   const [searchText, setSearchText] = useState<string | undefined>(undefined);
+  const [searchJumpToken, setSearchJumpToken] = useState(0);
   const { toast } = useToast();
 
   const handleFileSelect = (file: FileNode) => {
     setSelectedFile(file);
+    setSearchText(undefined);
+    setInitialPage(1);
   };
 
   const toggleFolder = useCallback((folderId: string) => {
@@ -155,7 +159,18 @@ export default function MedNotesHomePage() {
       setValue('');
       // Используем O(1) поиск
       const file = fileNodeMap.get(result.path);
-      if (file) onFileSelect(file, result.page, value);
+      if (file) {
+        if (typeof window !== 'undefined' && (localStorage.getItem('pdfDebug') === '1' || (window as typeof window & { __PDF_DEBUG__?: boolean }).__PDF_DEBUG__)) {
+          console.log('[PDFDBG] search.result.click', {
+            path: result.path,
+            page: result.page ?? 1,
+            query: value,
+            fileId: file.id,
+            fileName: file.name,
+          });
+        }
+        onFileSelect(file, result.page, value);
+      }
     }, [onFileSelect, value]);
 
     // Функция для выделения найденного текста
@@ -174,6 +189,7 @@ export default function MedNotesHomePage() {
     return (
       <div className="relative flex-1 min-w-0">
         <input
+          data-testid="pdf-global-search-input"
           type="text"
           value={value}
           onChange={e => handleTextSearch(e.target.value)}
@@ -183,6 +199,7 @@ export default function MedNotesHomePage() {
         {showDropdown && (value.trim() !== '') && (
           <div
             ref={dropdownRef}
+            data-testid="pdf-global-search-dropdown"
             className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 max-h-[300px] overflow-y-auto"
           >
             {isLoading ? (
@@ -193,6 +210,7 @@ export default function MedNotesHomePage() {
                 return (
                   <div
                     key={result.path + idx}
+                    data-testid="pdf-search-result-item"
                     onClick={() => handleResultClick(result)}
                     className="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
                   >
@@ -239,14 +257,21 @@ export default function MedNotesHomePage() {
             <SidebarTrigger className="md:hidden">
               <Menu />
             </SidebarTrigger>
+            <HeaderUtilityButtons />
             <PdfGlobalSearch nodes={fileStructureData} onFileSelect={(file, page, text) => {
               setSelectedFile(file);
               setInitialPage(page || 1);
               setSearchText(text);
+              setSearchJumpToken((t) => t + 1);
             }} />
           </header>
           <main className="flex-1 p-4 md:p-6 overflow-auto">
-            <PdfViewer selectedFile={selectedFile} initialPage={initialPage} searchText={searchText} />
+            <PdfViewer
+              selectedFile={selectedFile}
+              initialPage={initialPage}
+              searchText={searchText}
+              searchJumpToken={searchJumpToken}
+            />
           </main>
         </SidebarInset>
       </div>

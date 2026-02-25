@@ -9,7 +9,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "index:pdfs": "node src/data/pdf-indexer.js",
+    "test:pdf-match": "tsx --test src/lib/pdf-search-highlight.test.ts",
+    "test:e2e-pdf-jump": "playwright test tests/pdf-search-jump.spec.ts"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.8.0",
@@ -62,6 +65,7 @@
     "next": "$next"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

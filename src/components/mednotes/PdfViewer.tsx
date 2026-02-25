@@ -5,178 +5,313 @@ import type { FileNode } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AlertTriangle } from 'lucide-react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import { findMatchRawRange } from '@/lib/pdf-search-highlight';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 
-// Устанавливаем workerSrc для react-pdf
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
-
-
 
 interface PdfViewerProps {
   selectedFile: FileNode | null;
   initialPage?: number;
   searchText?: string;
+  searchJumpToken?: number;
 }
 
-const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, searchText }) => {
-  const [numPages, setNumPages] = React.useState<number>(0);
-  const pageRefs = React.useRef<(HTMLDivElement | null)[]>([]);
-  const [pageRendered, setPageRendered] = React.useState(false);
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
+function isPdfDebugEnabled() {
+  if (typeof window === 'undefined') return false;
+  return (
+    localStorage.getItem('pdfDebug') === '1' ||
+    (window as typeof window & { __PDF_DEBUG__?: boolean }).__PDF_DEBUG__ === true
+  );
+}
+
+function pdfDebugLog(event: string, payload?: Record<string, unknown>) {
+  if (!isPdfDebugEnabled()) return;
+  const time = new Date().toISOString().slice(11, 23);
+  console.log(`[PDFDBG ${time}] ${event}`, payload ?? {});
+}
+
+function getPageTextSpans(pageRoot: HTMLElement): HTMLElement[] {
+  const preferred = Array.from(
+    pageRoot.querySelectorAll<HTMLElement>('.react-pdf__Page__textContent span[role="presentation"]')
+  ).filter((el) => (el.textContent ?? '').trim().length > 0);
+
+  if (preferred.length > 0) return preferred;
+
+  return Array.from(
+    pageRoot.querySelectorAll<HTMLElement>('.react-pdf__Page__textContent span')
+  ).filter((el) => el.childElementCount === 0 && (el.textContent ?? '').trim().length > 0);
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function clearPageHighlights(pageRoot: HTMLElement) {
+  const spans = Array.from(pageRoot.querySelectorAll<HTMLElement>('[data-search-highlighted="true"]'));
+  for (const span of spans) {
+    const original = span.dataset.searchOriginal;
+    if (typeof original === 'string') {
+      span.textContent = original;
+    }
+    delete span.dataset.searchHighlighted;
+    delete span.dataset.searchOriginal;
+  }
+}
+
+function scrollElementIntoContainer(container: HTMLDivElement | null, element: HTMLElement) {
+  if (!container) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const containerRect = container.getBoundingClientRect();
+  const targetRect = element.getBoundingClientRect();
+  const nextTop =
+    container.scrollTop +
+    (targetRect.top - containerRect.top) -
+    (container.clientHeight / 2 - targetRect.height / 2);
+
+  container.scrollTo({ top: Math.max(0, nextTop), behavior: 'smooth' });
+}
+
+function highlightTextOnPdfPage(
+  pageRoot: HTMLElement,
+  searchText: string,
+  container: HTMLDivElement | null
+): { ok: boolean; spanCount: number; marks: number; matchMode?: string } {
+  const textSpans = getPageTextSpans(pageRoot);
+  const spanCount = textSpans.length;
+  if (!searchText.trim() || spanCount === 0) {
+    return { ok: false, spanCount, marks: 0 };
+  }
+
+  const spansWithText = textSpans.map((span) => ({ span, text: span.textContent || '' }));
+  const fullText = spansWithText.map((x) => x.text).join('');
+  if (!fullText) {
+    return { ok: false, spanCount, marks: 0 };
+  }
+
+  const match = findMatchRawRange(fullText, searchText);
+  if (!match) {
+    return { ok: false, spanCount, marks: 0 };
+  }
+
+  let rawCursor = 0;
+  let firstHighlightedSpan: HTMLElement | null = null;
+  let marks = 0;
+
+  for (const { span, text } of spansWithText) {
+    const spanStart = rawCursor;
+    const spanEnd = rawCursor + text.length;
+    rawCursor = spanEnd;
+
+    if (!text) continue;
+    if (spanEnd <= match.startRaw || spanStart >= match.endRawExclusive) continue;
+
+    const localStart = Math.max(0, match.startRaw - spanStart);
+    const localEnd = Math.min(text.length, match.endRawExclusive - spanStart);
+    if (localStart >= localEnd) continue;
+
+    const before = escapeHtml(text.slice(0, localStart));
+    const matchText = escapeHtml(text.slice(localStart, localEnd));
+    const after = escapeHtml(text.slice(localEnd));
+
+    span.dataset.searchOriginal = text;
+    span.dataset.searchHighlighted = 'true';
+    span.innerHTML = `${before}<mark class="bg-yellow-200 text-yellow-900 font-bold px-0.5 rounded">${matchText}</mark>${after}`;
+    marks += 1;
+
+    if (!firstHighlightedSpan) firstHighlightedSpan = span;
+  }
+
+  if (!firstHighlightedSpan) {
+    return { ok: false, spanCount, marks: 0 };
+  }
+
+  scrollElementIntoContainer(container, firstHighlightedSpan);
+  return { ok: true, spanCount, marks, matchMode: match.mode };
+}
+
+function buildPageSearchOrder(initialPage: number, numPages: number): number[] {
+  const pages: number[] = [];
+  if (initialPage >= 1 && initialPage <= numPages) pages.push(initialPage);
+  for (let p = 1; p <= numPages; p += 1) {
+    if (p !== initialPage) pages.push(p);
+  }
+  return pages;
+}
+
+const PdfViewer: React.FC<PdfViewerProps> = ({
+  selectedFile,
+  initialPage = 1,
+  searchText,
+  searchJumpToken = 0,
+}) => {
+  const [numPages, setNumPages] = React.useState(0);
   const [zoom, setZoom] = React.useState(1.0);
+  const pageRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const highlightRunIdRef = React.useRef(0);
 
-  const handleZoomIn = () => setZoom(z => Math.min(2.0, +(z + 0.1).toFixed(2)));
-  const handleZoomOut = () => setZoom(z => Math.max(0.5, +(z - 0.1).toFixed(2)));
-
-  React.useEffect(() => {
-    if (numPages > 0 && initialPage > 0 && initialPage <= numPages) {
-      const ref = pageRefs.current[initialPage - 1];
-      const container = containerRef.current;
-      if (ref) {
-        if (container) {
-          const top = ref.offsetTop;
-          container.scrollTo({ top, behavior: 'smooth' });
-        } else {
-          ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }
-    }
-  }, [numPages, initialPage, selectedFile?.path]);
+  const handleZoomIn = () => setZoom((z) => Math.min(2.0, +(z + 0.1).toFixed(2)));
+  const handleZoomOut = () => setZoom((z) => Math.max(0.5, +(z - 0.1).toFixed(2)));
 
   React.useEffect(() => {
-    if (numPages === 0 || !containerRef.current) return;
-    let attempts = 0;
-    const maxAttempts = 20;
-    const interval = 200;
-    let timeoutId: NodeJS.Timeout;
+    setNumPages(0);
+    pageRefs.current = [];
+    highlightRunIdRef.current += 1;
+    pdfDebugLog('viewer.reset', {
+      file: selectedFile?.path ?? null,
+      initialPage,
+      searchText: searchText ?? null,
+      searchJumpToken,
+    });
+  }, [selectedFile?.path, initialPage, searchText, searchJumpToken]);
 
-    function tryScrollToPage() {
-      const ref = pageRefs.current[initialPage - 1];
-      const container = containerRef.current;
-      if (ref && container) {
-        const top = ref.offsetTop;
-        container.scrollTo({ top, behavior: 'smooth' });
-        return;
-      }
-      attempts++;
-      if (attempts < maxAttempts) {
-        timeoutId = setTimeout(tryScrollToPage, interval);
-      }
-    }
-    tryScrollToPage();
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [numPages, initialPage, selectedFile?.path]);
-
-  // После рендера страницы ищем искомый текст и скроллим к нему (с повторными попытками)
   React.useEffect(() => {
-    if (!pageRendered || !pageRefs.current[initialPage - 1]) return;
-    const ref = pageRefs.current[initialPage - 1];
-    if (!ref) return;
-
-    function clearHighlights() {
-      const marks = Array.from(ref!.querySelectorAll('mark.bg-yellow-200'));
-      for (const mark of marks) {
-        const parent = mark.parentNode;
-        if (parent) {
-          parent.textContent = parent.textContent;
-        }
-      }
-    }
-
-    if (!searchText) {
-      clearHighlights();
+    if (numPages === 0 || initialPage < 1 || initialPage > numPages) {
+      pdfDebugLog('scroll.page.skip', { numPages, initialPage, reason: 'invalid-page' });
       return;
     }
 
     let attempts = 0;
-    const maxAttempts = 20;
-    const interval = 200; // мс
-    let timeoutId: NodeJS.Timeout;
+    const maxAttempts = 25;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
 
-    function tryScrollToText() {
-      if (!ref || !searchText) return;
-      // Use role="presentation" to target the actual positioned text elements, 
-      // avoiding wrapper spans that lose layout when innerHTML is replaced.
-      const textSpans = Array.from(ref.querySelectorAll('.react-pdf__Page__textContent span[role="presentation"]'));
-      if (textSpans.length === 0) {
-        attempts++;
-        if (attempts < maxAttempts) {
-          timeoutId = setTimeout(tryScrollToText, interval);
+    const tryScrollToPage = () => {
+      if (cancelled) return;
+      const pageRef = pageRefs.current[initialPage - 1];
+      const container = containerRef.current;
+
+      if (pageRef) {
+        pdfDebugLog('scroll.page.success', {
+          initialPage,
+          attempt: attempts,
+          pageOffsetTop: pageRef.offsetTop,
+          beforeScrollTop: container?.scrollTop ?? null,
+        });
+        if (container) {
+          container.scrollTo({ top: pageRef.offsetTop, behavior: 'smooth' });
+        } else {
+          pageRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         return;
       }
 
-      clearHighlights();
+      attempts += 1;
+      pdfDebugLog('scroll.page.retry', { initialPage, attempt: attempts });
+      if (attempts < maxAttempts) timeoutId = setTimeout(tryScrollToPage, 120);
+      else pdfDebugLog('scroll.page.giveup', { initialPage, attempts });
+    };
 
-      // Собираем весь текст страницы
-      const allText = textSpans.map(s => s.textContent || '').join('');
-
-      const words = searchText.trim().split(/\s+/).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-      // PDFs often lack spaces between elements, so we make spaces optional
-      const finalRegexPatternStr = words.join('\\s*');
-
-      const searchRegex = new RegExp(finalRegexPatternStr, 'i');
-      const match = allText.match(searchRegex);
-
-      if (!match) {
-        attempts++;
-        if (attempts < maxAttempts) {
-          timeoutId = setTimeout(tryScrollToText, interval);
-        }
-        return;
-      }
-
-      const matchIdx = match.index!;
-      const matchLength = match[0].length;
-
-      const escapeHtml = (str: string) =>
-        str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-
-      let charCount = 0;
-      let highlighted = false;
-      for (const span of textSpans) {
-        const spanText = span.textContent || '';
-        const spanStart = charCount;
-        const spanEnd = charCount + spanText.length;
-
-        const matchStart = matchIdx;
-        const matchEnd = matchIdx + matchLength;
-
-        if (spanEnd > matchStart && spanStart < matchEnd) {
-          const localStart = Math.max(0, matchStart - spanStart);
-          const localEnd = Math.min(spanText.length, matchEnd - spanStart);
-
-          const before = escapeHtml(spanText.substring(0, localStart));
-          const matchPortion = escapeHtml(spanText.substring(localStart, localEnd));
-          const after = escapeHtml(spanText.substring(localEnd));
-
-          span.innerHTML = `${before}<mark class="bg-yellow-200 text-yellow-900 font-bold px-0.5 rounded">${matchPortion}</mark>${after}`;
-
-          if (!highlighted) {
-            (span as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
-            highlighted = true;
-          }
-        }
-        charCount = spanEnd;
-      }
-
-      if (!highlighted && attempts < maxAttempts) {
-        attempts++;
-        timeoutId = setTimeout(tryScrollToText, interval);
-      }
-    }
-    tryScrollToText();
+    pdfDebugLog('scroll.page.start', { initialPage, numPages, searchJumpToken });
+    tryScrollToPage();
 
     return () => {
+      cancelled = true;
       if (timeoutId) clearTimeout(timeoutId);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageRendered, searchText, initialPage]);
+  }, [numPages, initialPage, selectedFile?.path, searchJumpToken]);
+
+  React.useEffect(() => {
+    for (const pageRef of pageRefs.current) {
+      if (pageRef) clearPageHighlights(pageRef);
+    }
+
+    const query = searchText?.trim();
+    if (!query || numPages === 0 || initialPage < 1 || initialPage > numPages) {
+      pdfDebugLog('highlight.skip', {
+        query: query ?? null,
+        numPages,
+        initialPage,
+        reason: 'missing-query-or-invalid-page',
+      });
+      return;
+    }
+
+    const runId = ++highlightRunIdRef.current;
+    let attempts = 0;
+    const maxAttempts = 30;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
+
+    const tryHighlight = () => {
+      if (cancelled || highlightRunIdRef.current !== runId) return;
+
+      const pageOrder = buildPageSearchOrder(initialPage, numPages);
+      let found = false;
+      let hasAnyPageRef = false;
+      let triedPages = 0;
+
+      for (const pageNumber of pageOrder) {
+        const pageRef = pageRefs.current[pageNumber - 1];
+        if (!pageRef) {
+          continue;
+        }
+        hasAnyPageRef = true;
+        triedPages += 1;
+
+        clearPageHighlights(pageRef);
+        const result = highlightTextOnPdfPage(pageRef, query, containerRef.current);
+        pdfDebugLog('highlight.attempt', {
+          runId,
+          requestedInitialPage: initialPage,
+          pageTried: pageNumber,
+          attempt: attempts,
+          ok: result.ok,
+          spanCount: result.spanCount,
+          marks: result.marks,
+          matchMode: result.matchMode ?? null,
+        });
+
+        if (result.ok) {
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        attempts += 1;
+        if (!hasAnyPageRef) {
+          pdfDebugLog('highlight.retry.no-page-ref', { runId, initialPage, attempt: attempts });
+        } else {
+          pdfDebugLog('highlight.retry.no-match-yet', {
+            runId,
+            initialPage,
+            attempt: attempts,
+            triedPages,
+          });
+        }
+        if (attempts < maxAttempts) timeoutId = setTimeout(tryHighlight, 120);
+        else {
+          pdfDebugLog('highlight.giveup', {
+            runId,
+            initialPage,
+            attempts,
+            query,
+            triedPages,
+            hasAnyPageRef,
+          });
+        }
+      }
+    };
+
+    pdfDebugLog('highlight.start', { runId, initialPage, query, zoom, searchJumpToken });
+    tryHighlight();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [searchText, initialPage, numPages, selectedFile?.path, zoom, searchJumpToken]);
 
   if (!selectedFile) {
     return (
@@ -222,21 +357,45 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
           </button>
         </div>
       </CardHeader>
-      <CardContent ref={containerRef} className="flex-1 p-0 relative overflow-auto max-h-[80vh] w-full flex justify-center">
+
+      <CardContent
+        ref={containerRef}
+        data-testid="pdf-scroll-container"
+        className="flex-1 p-0 relative overflow-auto max-h-[80vh] w-full flex justify-center"
+      >
         <Document
           file={selectedFile.path}
-          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+          onLoadSuccess={({ numPages: loadedPages }) => {
+            pdfDebugLog('document.loadSuccess', { file: selectedFile.path, loadedPages });
+            setNumPages(loadedPages);
+          }}
           loading={<div className="p-8 text-center">Загрузка PDF...</div>}
           error={<div className="p-8 text-center text-destructive">Ошибка загрузки PDF</div>}
         >
-          {Array.from(new Array(numPages), (el, index) => (
+          {Array.from(new Array(numPages), (_, index) => (
             <Page
               key={`page_${index + 1}`}
               pageNumber={index + 1}
               width={800 * zoom}
-              inputRef={ref => { pageRefs.current[index] = ref; }}
-              onRenderSuccess={() => {
-                if (index + 1 === initialPage) setPageRendered(true);
+              inputRef={(ref) => {
+                pageRefs.current[index] = ref;
+                if (ref && index + 1 === initialPage) {
+                  pdfDebugLog('page.ref.ready', {
+                    page: index + 1,
+                    file: selectedFile.path,
+                    offsetTop: ref.offsetTop,
+                  });
+                }
+              }}
+              onRenderTextLayerSuccess={() => {
+                if (index + 1 === initialPage) {
+                  const pageRef = pageRefs.current[index];
+                  pdfDebugLog('page.textLayer.ready', {
+                    page: index + 1,
+                    file: selectedFile.path,
+                    spans: pageRef ? getPageTextSpans(pageRef).length : 0,
+                  });
+                }
               }}
             />
           ))}
@@ -247,4 +406,3 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
 };
 
 export default PdfViewer;
-
