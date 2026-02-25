@@ -8,6 +8,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { GripVertical, ClipboardType, ListChecks, Baby, BriefcaseMedical, Stethoscope, Scissors, Siren, UserCheck, UserPlus, HeartPulse, Syringe, Ambulance, BookOpenCheck, BookOpen, UserCog, User, UserSquare, UserCircle, User2, UserPlus2, UserCheck2, UserRoundCheck, UserRoundPlus, UserRound, UserRoundCog, UserRoundSearch, UserRoundX, UserRoundMinus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import * as ReactDOM from 'react-dom';
+import { Reorder } from 'framer-motion';
 
 // Компонент строки поиска
 interface SearchBarProps {
@@ -78,13 +79,8 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // drag-and-drop state
+  // drag-and-drop state via framer-motion
   const [subfolderOrder, setSubfolderOrder] = React.useState<string[]>([]);
-  const [liveSubfolderOrder, setLiveSubfolderOrder] = React.useState<string[] | null>(null);
-  const dragItem = useRef<number | null>(null);
-  const dragOverItem = useRef<number | null>(null);
-  const [draggedIdx, setDraggedIdx] = React.useState<number | null>(null);
-  const [hoverIdx, setHoverIdx] = React.useState<number | null>(null);
 
   // Режим "Я знаю, какие будут станции"
   const [selectMode, setSelectMode] = React.useState(false);
@@ -129,9 +125,32 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
   const orderedSubfolders = React.useMemo(() => {
     const allSubfolders = getAllSubfolders(nodes);
     const idToSubfolder: Record<string, ReturnType<typeof getAllSubfolders>[number]> = Object.fromEntries(allSubfolders.map(sf => [sf.id, sf]));
-    const order = liveSubfolderOrder || subfolderOrder;
-    return order.map((id: string) => idToSubfolder[id]).filter(Boolean);
-  }, [nodes, subfolderOrder, liveSubfolderOrder]);
+    return subfolderOrder.map((id: string) => idToSubfolder[id]).filter(Boolean);
+  }, [nodes, subfolderOrder]);
+
+  // Авто-разворачивание папки с выбранным файлом
+  useEffect(() => {
+    if (selectedFileId) {
+      for (const sf of orderedSubfolders) {
+        if ((sf.node.children || []).some((f: FileNode) => f.id === selectedFileId)) {
+          setExpandedSubfolders(prev => new Set(prev).add(sf.id));
+          break;
+        }
+      }
+    }
+  }, [selectedFileId, orderedSubfolders]);
+
+  // Прокрутка к выбранному файлу
+  useEffect(() => {
+    if (selectedFileId) {
+      setTimeout(() => {
+        const selectedElement = document.getElementById(`file-item-${selectedFileId}`);
+        if (selectedElement) {
+          selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
+    }
+  }, [selectedFileId, expandedSubfolders]);
 
   // Получить выбранные станции (PDF-файлы)
   const chosenFiles = Object.values(selectedStations).filter(Boolean) as FileNode[];
@@ -199,7 +218,8 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
             {rootFiles.map(file => (
               <div
                 key={file.id}
-                className={`flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
+                id={`file-item-${file.id}`}
+                className={`flex items-center px-2 py-1 rounded cursor-pointer hover:bg-blue-50 text-xs transition-colors duration-300 ${selectedFileId === file.id ? 'bg-blue-100 font-bold border-l-2 border-blue-500 shadow-sm' : ''}`}
                 onClick={() => onFileSelect(file)}
               >
                 <span className="mr-2">{file.icon && React.createElement(file.icon, { size: 14 })}</span>
@@ -211,109 +231,79 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
         )}
         {/* Список подпапок (станций) */}
         <div className="text-[11px] text-gray-500 mb-0.5">Станции</div>
-        {!selectMode && orderedSubfolders.map((sf, idx) => {
-          const isDragging = draggedIdx === idx;
-          const isOver = hoverIdx === idx && draggedIdx !== null && draggedIdx !== idx;
-          const isKlin = sf.node.name.toLowerCase().includes('клиническ');
-          const isPrakt = sf.node.name.toLowerCase().includes('практическ');
-          // Определяем родительский раздел
-          const parentName = sf.parent.name.toLowerCase();
-          let IconComponent = ClipboardType;
-          // Уникальные иконки для каждой пары станций
-          if (parentName.includes('педіатр') || parentName.includes('педиатр')) {
-            IconComponent = isKlin ? Baby : BookOpenCheck;
-          } else if (parentName.includes('акушер')) {
-            IconComponent = isKlin ? BriefcaseMedical : Syringe;
-          } else if (parentName.includes('внутрішня') || parentName.includes('внутренняя')) {
-            IconComponent = isKlin ? Stethoscope : HeartPulse;
-          } else if (parentName.includes('хирург')) {
-            IconComponent = isKlin ? Scissors : UserCheck;
-          } else if (parentName.includes('екстрен') || parentName.includes('экстрен')) {
-            IconComponent = isKlin ? Siren : Ambulance;
-          }
-          return (
-            <div key={sf.id}
-              className="bg-sidebar-accent/60 border border-sidebar-border rounded-md mb-0.5 mt-1 p-0.5 transition-colors"
-            >
-              <div className="flex items-center group">
-                <div
-                  className="flex-1 font-medium flex items-center gap-0 cursor-pointer select-none text-xs"
-                  onClick={() => toggleSubfolder(sf.id)}
+        {!selectMode && (
+          <Reorder.Group axis="y" values={subfolderOrder} onReorder={setSubfolderOrder} className="list-none m-0 p-0">
+            {orderedSubfolders.map((sf, idx) => {
+              const isKlin = sf.node.name.toLowerCase().includes('клиническ');
+              const isPrakt = sf.node.name.toLowerCase().includes('практическ');
+              // Определяем родительский раздел
+              const parentName = sf.parent.name.toLowerCase();
+              let IconComponent = ClipboardType;
+              // Уникальные иконки для каждой пары станций
+              if (parentName.includes('педіатр') || parentName.includes('педиатр')) {
+                IconComponent = isKlin ? Baby : BookOpenCheck;
+              } else if (parentName.includes('акушер')) {
+                IconComponent = isKlin ? BriefcaseMedical : Syringe;
+              } else if (parentName.includes('внутрішня') || parentName.includes('внутренняя')) {
+                IconComponent = isKlin ? Stethoscope : HeartPulse;
+              } else if (parentName.includes('хирург')) {
+                IconComponent = isKlin ? Scissors : UserCheck;
+              } else if (parentName.includes('екстрен') || parentName.includes('экстрен')) {
+                IconComponent = isKlin ? Siren : Ambulance;
+              }
+              return (
+                <Reorder.Item
+                  key={sf.id}
+                  value={sf.id}
+                  className="bg-sidebar-accent/60 border border-sidebar-border rounded-md mb-0.5 mt-1 p-0.5 transition-colors"
                 >
-                  {/* Уникальная иконка подпапки с цветным фоном */}
-                  <span
-                    className={
-                      `inline-flex items-center justify-center rounded-full mr-1 h-5 w-5 ` +
-                      (isKlin
-                        ? 'bg-blue-200 text-blue-800'
-                        : isPrakt
-                        ? 'bg-green-200 text-green-800'
-                        : 'bg-gray-200 text-gray-700')
-                    }
-                  >
-                    <IconComponent className="h-3.5 w-3.5" />
-                  </span>
-                  <span>{sf.name}</span>
-                  <span className="ml-1 text-[10px]">{expandedSubfolders.has(sf.id) ? '▼' : '▶'}</span>
-                </div>
-                <span
-                  draggable
-                  onDragStart={() => {
-                    dragItem.current = idx;
-                    setDraggedIdx(idx);
-                    setLiveSubfolderOrder(subfolderOrder);
-                  }}
-                  onDragEnd={() => {
-                    if (liveSubfolderOrder) setSubfolderOrder(liveSubfolderOrder);
-                    setLiveSubfolderOrder(null);
-                    setDraggedIdx(null);
-                    setHoverIdx(null);
-                    dragItem.current = null;
-                    dragOverItem.current = null;
-                  }}
-                  onDragOver={e => {
-                    e.preventDefault();
-                    if (draggedIdx !== null && draggedIdx !== idx && liveSubfolderOrder) {
-                      setHoverIdx(idx);
-                      setLiveSubfolderOrder(prev => prev ? reorder(prev, draggedIdx, idx) : null);
-                      setDraggedIdx(idx);
-                    }
-                  }}
-                  onDrop={() => {
-                    if (draggedIdx !== null && liveSubfolderOrder) {
-                      setSubfolderOrder(liveSubfolderOrder);
-                    }
-                    setLiveSubfolderOrder(null);
-                    setDraggedIdx(null);
-                    setHoverIdx(null);
-                    dragItem.current = null;
-                    dragOverItem.current = null;
-                  }}
-                  className={`ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab ${isDragging ? 'bg-blue-100 shadow-lg' : ''} ${isOver ? 'ring-2 ring-blue-400' : ''}`}
-                  title="Перетащить станцию"
-                >
-                  <GripVertical />
-                </span>
-              </div>
-              {expandedSubfolders.has(sf.id) && (
-                <div className="ml-3 mb-1">
-                  {(sf.node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                  <div className="flex items-center group">
                     <div
-                      key={file.id}
-                      className={`py-0.5 px-1 rounded cursor-pointer hover:bg-blue-50 text-xs ${selectedFileId === file.id ? 'bg-blue-100 font-bold' : ''}`}
-                      onClick={e => {
-                        e.stopPropagation();
-                        onFileSelect(file);
-                      }}
+                      className="flex-1 font-medium flex items-center gap-0 cursor-pointer select-none text-xs"
+                      onClick={() => toggleSubfolder(sf.id)}
                     >
-                      {file.name}
+                      {/* Уникальная иконка подпапки с цветным фоном */}
+                      <span
+                        className={
+                          `inline-flex items-center justify-center rounded-full mr-1 h-5 w-5 ` +
+                          (isKlin
+                            ? 'bg-blue-200 text-blue-800'
+                            : isPrakt
+                              ? 'bg-green-200 text-green-800'
+                              : 'bg-gray-200 text-gray-700')
+                        }
+                      >
+                        <IconComponent className="h-3.5 w-3.5" />
+                      </span>
+                      <span>{sf.name}</span>
+                      <span className="ml-1 text-[10px]">{expandedSubfolders.has(sf.id) ? '▼' : '▶'}</span>
                     </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                    <span className={`ml-2 text-gray-400 opacity-70 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing`} title="Перетащить станцию">
+                      <GripVertical />
+                    </span>
+                  </div>
+                  {expandedSubfolders.has(sf.id) && (
+                    <div className="ml-3 mb-1">
+                      {(sf.node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                        <div
+                          key={file.id}
+                          id={`file-item-${file.id}`}
+                          className={`py-0.5 px-1 rounded cursor-pointer hover:bg-blue-50 text-xs transition-colors duration-300 ${selectedFileId === file.id ? 'bg-blue-100 font-bold border-l-2 border-blue-500 shadow-sm' : ''}`}
+                          onClick={e => {
+                            e.stopPropagation();
+                            onFileSelect(file);
+                          }}
+                        >
+                          {file.name}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </Reorder.Item>
+              );
+            })}
+          </Reorder.Group>
+        )}
         {selectMode && (
           <>
             {orderedSubfolders.map(({ parent, node }) => (

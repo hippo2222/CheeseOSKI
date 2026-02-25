@@ -11,6 +11,24 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 // Устанавливаем workerSrc для react-pdf
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
+function highlightPattern(text: string, pattern: string) {
+  if (!pattern) return text;
+  const splitText = text.split(new RegExp(`(${pattern})`, 'gi'));
+  return (
+    <>
+      {splitText.map((chunk, index) =>
+        chunk.toLowerCase() === pattern.toLowerCase() ? (
+          <mark key={index} className="bg-yellow-200 text-yellow-900 font-bold px-0.5 rounded">
+            {chunk}
+          </mark>
+        ) : (
+          chunk
+        )
+      )}
+    </>
+  );
+}
+
 interface PdfViewerProps {
   selectedFile: FileNode | null;
   initialPage?: number;
@@ -100,7 +118,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
       if (idx === -1) {
         attempts++;
         if (attempts < maxAttempts) {
-           timeoutId = setTimeout(tryScrollToText, interval);
+          timeoutId = setTimeout(tryScrollToText, interval);
         }
         return;
       }
@@ -122,7 +140,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
       }
     }
     tryScrollToText();
-    
+
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
@@ -186,6 +204,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
               pageNumber={index + 1}
               width={800 * zoom}
               inputRef={ref => { pageRefs.current[index] = ref; }}
+              customTextRenderer={({ str }) => highlightPattern(str, searchText || '') as any}
               onRenderSuccess={() => {
                 if (index + 1 === initialPage) setPageRendered(true);
               }}
