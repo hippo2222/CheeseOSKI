@@ -47,6 +47,8 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
     let attempts = 0;
     const maxAttempts = 20;
     const interval = 200;
+    let timeoutId: NodeJS.Timeout;
+
     function tryScrollToPage() {
       const ref = pageRefs.current[initialPage - 1];
       const container = containerRef.current;
@@ -56,9 +58,15 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
         return;
       }
       attempts++;
-      if (attempts < maxAttempts) setTimeout(tryScrollToPage, interval);
+      if (attempts < maxAttempts) {
+        timeoutId = setTimeout(tryScrollToPage, interval);
+      }
     }
     tryScrollToPage();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numPages, initialPage, selectedFile?.path]);
 
@@ -72,13 +80,16 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
     let found = false;
     const maxAttempts = 20;
     const interval = 200; // мс
+    let timeoutId: NodeJS.Timeout;
 
     function tryScrollToText() {
       if (!ref || !searchText) return;
       const textSpans = Array.from(ref.querySelectorAll('.react-pdf__Page__textContent span'));
       if (textSpans.length === 0) {
         attempts++;
-        if (attempts < maxAttempts) setTimeout(tryScrollToText, interval);
+        if (attempts < maxAttempts) {
+          timeoutId = setTimeout(tryScrollToText, interval);
+        }
         return;
       }
       // Собираем весь текст страницы
@@ -88,7 +99,9 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
       const idx = pageText.indexOf(search);
       if (idx === -1) {
         attempts++;
-        if (attempts < maxAttempts) setTimeout(tryScrollToText, interval);
+        if (attempts < maxAttempts) {
+           timeoutId = setTimeout(tryScrollToText, interval);
+        }
         return;
       }
       // Определяем, в каком span начинается совпадение
@@ -105,10 +118,14 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
       }
       attempts++;
       if (!found && attempts < maxAttempts) {
-        setTimeout(tryScrollToText, interval);
+        timeoutId = setTimeout(tryScrollToText, interval);
       }
     }
     tryScrollToText();
+    
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageRendered, searchText, initialPage]);
 

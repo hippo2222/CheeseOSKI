@@ -49,13 +49,13 @@ export default function MedNotesHomePage() {
       const searchRecursive = (nodes: FileNode[]) => {
         nodes.forEach(node => {
           if (node.type === 'folder') {
-            const childrenMatch = node.children?.some(child => 
-              child.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+            const childrenMatch = node.children?.some(child =>
+              child.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
               (child.type === 'folder' && child.children?.some(c => c.name.toLowerCase().includes(searchTerm.toLowerCase())))
             );
             if (node.name.toLowerCase().includes(searchTerm.toLowerCase()) || childrenMatch) {
               newExpanded.add(node.id);
-              if(node.children) searchRecursive(node.children);
+              if (node.children) searchRecursive(node.children);
             }
           }
         });
@@ -64,7 +64,7 @@ export default function MedNotesHomePage() {
       setExpandedFolders(newExpanded);
     }
   }, [searchTerm]);
-  
+
   const filteredFileStructure = useMemo(() => {
     if (!searchTerm.trim()) {
       return fileStructureData;
@@ -72,14 +72,14 @@ export default function MedNotesHomePage() {
     const lowerSearchTerm = searchTerm.toLowerCase();
 
     function rFilter(nodes: FileNode[]): FileNode[] {
-       return nodes.map(node => {
+      return nodes.map(node => {
         if (node.type === 'file') {
           return node.name.toLowerCase().includes(lowerSearchTerm) ? node : null;
         }
         // folder
         const filteredChildren = node.children ? rFilter(node.children) : [];
         const validChildren = filteredChildren.filter(c => c !== null) as FileNode[];
-        
+
         if (node.name.toLowerCase().includes(lowerSearchTerm) || validChildren.length > 0) {
           return { ...node, children: validChildren };
         }
@@ -89,45 +89,87 @@ export default function MedNotesHomePage() {
     return rFilter(fileStructureData);
   }, [searchTerm]);
 
+  const fileNodeMap = useMemo(() => {
+    const map = new Map<string, FileNode>();
+    function traverse(nodes: FileNode[]) {
+      for (const node of nodes) {
+        if (node.type === 'file' && node.path) {
+          map.set(node.path, node);
+        }
+        if (node.children) {
+          traverse(node.children);
+        }
+      }
+    }
+    traverse(fileStructureData);
+    return map;
+  }, []);
+
   // Компонент поиска по содержимому PDF
   function PdfGlobalSearch({ nodes, onFileSelect }: { nodes: FileNode[]; onFileSelect: (file: FileNode, page?: number, searchText?: string) => void }) {
     const [value, setValue] = useState('');
     const [searchResults, setSearchResults] = useState<{ path: string; preview: string; page?: number }[]>([]);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
-    const handleTextSearch = useCallback(async (term: string) => {
+    const performSearch = useCallback(async (term: string) => {
+      if (!term.trim()) {
+        setSearchResults([]);
+        setShowDropdown(false);
+        setIsLoading(false);
+        return;
+      }
+      setIsLoading(true);
+      setShowDropdown(true);
+      try {
+        const res = await fetch(`/api/pdf-search?q=${encodeURIComponent(term)}`);
+        const data = await res.json();
+        setSearchResults(data);
+      } catch (e) {
+        console.error('Search failed', e);
+      } finally {
+        setIsLoading(false);
+      }
+    }, []);
+
+    const handleTextSearch = useCallback((term: string) => {
       setValue(term);
+      if (debounceTimeout.current) {
+        clearTimeout(debounceTimeout.current);
+      }
       if (!term.trim()) {
         setSearchResults([]);
         setShowDropdown(false);
         return;
       }
-      setShowDropdown(true);
-      const res = await fetch(`/api/pdf-search?q=${encodeURIComponent(term)}`);
-      const data = await res.json();
-      setSearchResults(data);
-      setShowDropdown(data.length > 0);
-    }, []);
+      debounceTimeout.current = setTimeout(() => {
+        performSearch(term);
+      }, 300);
+    }, [performSearch]);
 
     const handleResultClick = useCallback((result: { path: string; preview: string; page?: number }) => {
       setShowDropdown(false);
       setSearchResults([]);
       setValue('');
-      // Находим FileNode по пути
-      const findByPath = (nodes: FileNode[], path: string): FileNode | null => {
-        for (const node of nodes) {
-          if (node.type === 'file' && node.path === path) return node;
-          if (node.children) {
-            const found = findByPath(node.children, path);
-            if (found) return found;
-          }
-        }
-        return null;
-      };
-      const file = findByPath(nodes, result.path);
+      // Используем O(1) поиск
+      const file = fileNodeMap.get(result.path);
       if (file) onFileSelect(file, result.page, value);
-    }, [nodes, onFileSelect, value]);
+    }, [onFileSelect, value]);
+
+    // Функция для выделения найденного текста
+    const highlightText = (text: string, query: string) => {
+      if (!query.trim()) return text;
+      const parts = text.split(new RegExp(`(${query})`, 'gi'));
+      return parts.map((part, index) =>
+        part.toLowerCase() === query.toLowerCase() ? (
+          <mark key={index} className="bg-yellow-200 font-bold px-1 rounded">{part}</mark>
+        ) : (
+          part
+        )
+      );
+    };
 
     return (
       <div className="relative flex-1 min-w-0">
@@ -138,35 +180,30 @@ export default function MedNotesHomePage() {
           placeholder="Поиск по тексту всех PDF..."
           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        {showDropdown && searchResults.length > 0 && (
+        {showDropdown && (value.trim() !== '') && (
           <div
             ref={dropdownRef}
-            className="absolute top-full left-0 right-0 bg-white border rounded-md shadow-lg z-50 max-h-[300px] overflow-y-auto"
+            className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 max-h-[300px] overflow-y-auto"
           >
-            {searchResults.map((result, idx) => {
-              // Находим FileNode по пути для отображения name
-              const findByPath = (nodes: FileNode[], path: string): FileNode | null => {
-                for (const node of nodes) {
-                  if (node.type === 'file' && node.path === path) return node;
-                  if (node.children) {
-                    const found = findByPath(node.children, path);
-                    if (found) return found;
-                  }
-                }
-                return null;
-              };
-              const fileNode = findByPath(nodes, result.path);
-              return (
-                <div
-                  key={result.path + idx}
-                  onClick={() => handleResultClick(result)}
-                  className="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
-                >
-                  <div className="font-medium mb-1">{fileNode ? fileNode.name : result.path.split('/').pop()}</div>
-                  <div className="text-sm text-gray-600">...{result.preview}...</div>
-                </div>
-              );
-            })}
+            {isLoading ? (
+              <div className="p-4 text-center text-sm text-gray-500">Поиск...</div>
+            ) : searchResults.length > 0 ? (
+              searchResults.map((result, idx) => {
+                const fileNode = fileNodeMap.get(result.path);
+                return (
+                  <div
+                    key={result.path + idx}
+                    onClick={() => handleResultClick(result)}
+                    className="p-3 hover:bg-gray-50 cursor-pointer border-b last:border-b-0"
+                  >
+                    <div className="font-medium mb-1">{fileNode ? fileNode.name : result.path.split('/').pop()}</div>
+                    <div className="text-sm text-gray-600">...{highlightText(result.preview, value)}...</div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="p-4 text-center text-sm text-gray-500">Ничего не найдено</div>
+            )}
           </div>
         )}
       </div>
@@ -200,7 +237,7 @@ export default function MedNotesHomePage() {
         <SidebarInset className="flex-1 flex flex-col overflow-hidden bg-background">
           <header className="flex items-center gap-4 p-4 border-b bg-card shadow-sm">
             <SidebarTrigger className="md:hidden">
-               <Menu />
+              <Menu />
             </SidebarTrigger>
             <PdfGlobalSearch nodes={fileStructureData} onFileSelect={(file, page, text) => {
               setSelectedFile(file);

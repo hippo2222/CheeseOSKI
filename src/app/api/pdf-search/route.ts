@@ -4,14 +4,21 @@ import fs from 'fs';
 
 const INDEX_PATH = path.join(process.cwd(), 'src/data/pdf-index.json');
 
+let cachedIndex: any = null;
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const query = searchParams.get('q')?.toLowerCase() || '';
   if (!query.trim()) {
     return NextResponse.json([]);
   }
-  const indexRaw = fs.readFileSync(INDEX_PATH, 'utf-8');
-  const index = JSON.parse(indexRaw);
+
+  if (!cachedIndex) {
+    const indexRaw = fs.readFileSync(INDEX_PATH, 'utf-8');
+    cachedIndex = JSON.parse(indexRaw);
+  }
+
+  const index = cachedIndex;
   const results = [];
   for (const file of index) {
     if (Array.isArray(file.pages)) {
