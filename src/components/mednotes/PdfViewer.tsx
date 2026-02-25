@@ -11,23 +11,7 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 // Устанавливаем workerSrc для react-pdf
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
-function highlightPattern(text: string, pattern: string) {
-  if (!pattern) return text;
-  const splitText = text.split(new RegExp(`(${pattern})`, 'gi'));
-  return (
-    <>
-      {splitText.map((chunk, index) =>
-        chunk.toLowerCase() === pattern.toLowerCase() ? (
-          <mark key={index} className="bg-yellow-200 text-yellow-900 font-bold px-0.5 rounded">
-            {chunk}
-          </mark>
-        ) : (
-          chunk
-        )
-      )}
-    </>
-  );
-}
+
 
 interface PdfViewerProps {
   selectedFile: FileNode | null;
@@ -90,19 +74,35 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
 
   // После рендера страницы ищем искомый текст и скроллим к нему (с повторными попытками)
   React.useEffect(() => {
-    if (!pageRendered) return;
-    if (!searchText) return;
+    if (!pageRendered || !pageRefs.current[initialPage - 1]) return;
     const ref = pageRefs.current[initialPage - 1];
     if (!ref) return;
+
+    function clearHighlights() {
+      const marks = Array.from(ref!.querySelectorAll('mark.bg-yellow-200'));
+      for (const mark of marks) {
+        const parent = mark.parentNode;
+        if (parent) {
+          parent.textContent = parent.textContent;
+        }
+      }
+    }
+
+    if (!searchText) {
+      clearHighlights();
+      return;
+    }
+
     let attempts = 0;
-    let found = false;
     const maxAttempts = 20;
     const interval = 200; // мс
     let timeoutId: NodeJS.Timeout;
 
     function tryScrollToText() {
       if (!ref || !searchText) return;
-      const textSpans = Array.from(ref.querySelectorAll('.react-pdf__Page__textContent span'));
+      // Use role="presentation" to target the actual positioned text elements, 
+      // avoiding wrapper spans that lose layout when innerHTML is replaced.
+      const textSpans = Array.from(ref.querySelectorAll('.react-pdf__Page__textContent span[role="presentation"]'));
       if (textSpans.length === 0) {
         attempts++;
         if (attempts < maxAttempts) {
@@ -110,32 +110,63 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
         }
         return;
       }
+
+      clearHighlights();
+
       // Собираем весь текст страницы
       const allText = textSpans.map(s => s.textContent || '').join('');
-      const search = searchText.replace(/\s+/g, ' ').trim().toLowerCase();
-      const pageText = allText.replace(/\s+/g, ' ').trim().toLowerCase();
-      const idx = pageText.indexOf(search);
-      if (idx === -1) {
+
+      const words = searchText.trim().split(/\s+/).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      // PDFs often lack spaces between elements, so we make spaces optional
+      const finalRegexPatternStr = words.join('\\s*');
+
+      const searchRegex = new RegExp(finalRegexPatternStr, 'i');
+      const match = allText.match(searchRegex);
+
+      if (!match) {
         attempts++;
         if (attempts < maxAttempts) {
           timeoutId = setTimeout(tryScrollToText, interval);
         }
         return;
       }
-      // Определяем, в каком span начинается совпадение
+
+      const matchIdx = match.index!;
+      const matchLength = match[0].length;
+
+      const escapeHtml = (str: string) =>
+        str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+
       let charCount = 0;
+      let highlighted = false;
       for (const span of textSpans) {
-        const spanText = (span.textContent || '').replace(/\s+/g, ' ');
-        const nextCharCount = charCount + spanText.length;
-        if (charCount <= idx && idx < nextCharCount) {
-          (span as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
-          found = true;
-          break;
+        const spanText = span.textContent || '';
+        const spanStart = charCount;
+        const spanEnd = charCount + spanText.length;
+
+        const matchStart = matchIdx;
+        const matchEnd = matchIdx + matchLength;
+
+        if (spanEnd > matchStart && spanStart < matchEnd) {
+          const localStart = Math.max(0, matchStart - spanStart);
+          const localEnd = Math.min(spanText.length, matchEnd - spanStart);
+
+          const before = escapeHtml(spanText.substring(0, localStart));
+          const matchPortion = escapeHtml(spanText.substring(localStart, localEnd));
+          const after = escapeHtml(spanText.substring(localEnd));
+
+          span.innerHTML = `${before}<mark class="bg-yellow-200 text-yellow-900 font-bold px-0.5 rounded">${matchPortion}</mark>${after}`;
+
+          if (!highlighted) {
+            (span as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            highlighted = true;
+          }
         }
-        charCount = nextCharCount;
+        charCount = spanEnd;
       }
-      attempts++;
-      if (!found && attempts < maxAttempts) {
+
+      if (!highlighted && attempts < maxAttempts) {
+        attempts++;
         timeoutId = setTimeout(tryScrollToText, interval);
       }
     }
@@ -204,7 +235,6 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ selectedFile, initialPage = 1, se
               pageNumber={index + 1}
               width={800 * zoom}
               inputRef={ref => { pageRefs.current[index] = ref; }}
-              customTextRenderer={({ str }) => highlightPattern(str, searchText || '') as any}
               onRenderSuccess={() => {
                 if (index + 1 === initialPage) setPageRendered(true);
               }}
