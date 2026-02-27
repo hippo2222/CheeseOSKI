@@ -333,15 +333,15 @@ const PdfViewer: React.FC<PdfViewerProps> = ({
 
   if (!selectedFile) {
     return (
-      <div className="h-full flex flex-col items-center overflow-y-auto w-full max-w-4xl mx-auto py-8 px-4 sm:px-6">
+      <div className="h-full flex flex-col items-center overflow-y-auto w-full mx-auto py-8 px-4 sm:px-6">
         <div className="w-full flex flex-col gap-6">
           <div className="text-center space-y-3">
             <h2 className="text-3xl font-bold font-headline text-foreground">Добро пожаловать в CheeseOSKI!</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg mx-auto">
               Это удобный навигатор по материалам для подготовки к экзамену ОСКИ.
               Выберите нужную станцию или файл в боковом меню слева, чтобы начать работу.
             </p>
-            <p className="text-muted-foreground text-md max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-md mx-auto">
               💡 Если вы уже знаете, какие задачи вам попадутся, воспользуйтесь режимом <b>«Я знаю, какие будут станции»</b> для быстрого переключения только между ними.
             </p>
           </div>
