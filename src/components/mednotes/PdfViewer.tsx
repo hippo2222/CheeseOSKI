@@ -156,9 +156,27 @@ const PdfViewer: React.FC<PdfViewerProps> = ({
 }) => {
   const [numPages, setNumPages] = React.useState(0);
   const [zoom, setZoom] = React.useState(1.0);
+  const [containerWidth, setContainerWidth] = React.useState(800);
   const pageRefs = React.useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const highlightRunIdRef = React.useRef(0);
+
+  React.useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === container) {
+          // Вычитаем 32px для отступов и скроллбара, чтобы избежать горизонтального скроллинга
+          setContainerWidth(Math.max(300, entry.contentRect.width - 32));
+        }
+      }
+    });
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [selectedFile?.path]);
 
   const handleZoomIn = () => setZoom((z) => Math.min(2.0, +(z + 0.1).toFixed(2)));
   const handleZoomOut = () => setZoom((z) => Math.max(0.5, +(z - 0.1).toFixed(2)));
@@ -376,7 +394,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({
             <Page
               key={`page_${index + 1}`}
               pageNumber={index + 1}
-              width={800 * zoom}
+              width={containerWidth * zoom}
               inputRef={(ref) => {
                 pageRefs.current[index] = ref;
                 if (ref && index + 1 === initialPage) {

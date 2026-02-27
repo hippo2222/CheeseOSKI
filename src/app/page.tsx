@@ -200,7 +200,7 @@ export default function MedNotesHomePage() {
           <div
             ref={dropdownRef}
             data-testid="pdf-global-search-dropdown"
-            className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 max-h-[300px] overflow-y-auto"
+            className="absolute top-full right-0 sm:left-0 sm:right-0 mt-1 bg-white border rounded-md shadow-lg z-[60] max-h-[300px] overflow-y-auto w-[calc(100vw-2rem)] max-w-[400px] sm:w-auto sm:max-w-none origin-top-right sm:origin-top-left"
           >
             {isLoading ? (
               <div className="p-4 text-center text-sm text-gray-500">Поиск...</div>

@@ -272,8 +272,8 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
           Как работать со станциями?
         </Button>
         {showHelp && ReactDOM.createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full relative">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" onClick={() => setShowHelp(false)}>
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               <button
                 className="absolute top-2 right-2 text-xl text-gray-400 hover:text-gray-700"
                 onClick={() => setShowHelp(false)}

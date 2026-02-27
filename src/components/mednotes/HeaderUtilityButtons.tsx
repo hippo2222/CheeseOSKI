@@ -47,8 +47,8 @@ export default function HeaderUtilityButtons() {
       </div>
 
       {showLegalDisclaimer && ReactDOM.createPortal(
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4">
-          <div className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-2xl border border-red-200 bg-white shadow-2xl">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4" onClick={() => setShowLegalDisclaimer(false)}>
+          <div className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-2xl border border-red-200 bg-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-red-100 bg-gradient-to-r from-red-50 to-white px-6 py-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
@@ -122,8 +122,8 @@ export default function HeaderUtilityButtons() {
       )}
 
       {showCoffeeSupport && ReactDOM.createPortal(
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4">
-          <div className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl border border-amber-200 bg-white shadow-2xl">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4" onClick={() => setShowCoffeeSupport(false)}>
+          <div className="relative w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-2xl border border-amber-200 bg-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-50 via-orange-50 to-white px-6 py-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100">
