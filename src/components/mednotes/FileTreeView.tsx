@@ -271,21 +271,32 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
         >
           Как работать со станциями?
         </Button>
-        {showHelp && ReactDOM.createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" onClick={() => setShowHelp(false)}>
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-              <button
-                className="absolute top-2 right-2 text-xl text-gray-400 hover:text-gray-700"
-                onClick={() => setShowHelp(false)}
-                aria-label="Закрыть"
-              >×</button>
-              <h2 className="text-2xl font-bold mb-4">Как работать со станциями?</h2>
-              <ul className="list-disc pl-5 space-y-2 text-base text-justify">
-                <li><span role="img" aria-label="drag">🖱️</span> <b>Перемещение станций:</b> Теперь можно менять порядок всех клинических и практических станций независимо друг от друга. Просто тяните нужную станцию за иконку справа от названия.</li>
-                <li><span role="img" aria-label="target">🎯</span> <b>Режим "Я знаю, какие будут станции":</b> Нажмите эту кнопку, чтобы выбрать по одной задаче из каждой подпапки (клиническая и практическая для каждого раздела). После выбора вы сможете быстро переключаться только между этими задачами.</li>
-                <li><span role="img" aria-label="lightbulb">💡</span> <b>Зачем это нужно?</b> Такой режим будет полезен, если вам уже известно, какие задачи будут ждать вас на экзамене. Выберите 10 задач и переключайтесь только между ними, чтобы сэкономить время. При этом поиск по прежнему работает по всем файлам и у вас будет возможность найти и открыть любой другой файл при необходимости.</li>
-              </ul>
-              <div className="mt-6 text-right">
+        {showHelp && typeof document !== 'undefined' && ReactDOM.createPortal(
+          <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/40 p-4" onClick={() => setShowHelp(false)}>
+            <div className="bg-white rounded-lg shadow-lg w-full max-w-lg flex flex-col relative max-h-[90vh] overflow-hidden" onClick={(e) => e.stopPropagation()}>
+
+              {/* Sticky Header with Close Button */}
+              <div className="sticky top-0 z-10 flex items-center justify-between border-b px-6 py-4 bg-white">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Как работать со станциями?</h2>
+                <button
+                  type="button"
+                  className="rounded-md p-1 -mr-2 text-2xl leading-none text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition"
+                  onClick={() => setShowHelp(false)}
+                  aria-label="Закрыть"
+                >×</button>
+              </div>
+
+              {/* Scrollable Content */}
+              <div className="overflow-y-auto flex-1 px-6 py-5">
+                <ul className="list-disc pl-5 space-y-3 text-sm sm:text-base text-gray-700 text-justify">
+                  <li><span role="img" aria-label="drag">🖱️</span> <b>Перемещение станций:</b> Теперь можно менять порядок всех клинических и практических станций независимо друг от друга. Просто тяните нужную станцию за иконку справа от названия.</li>
+                  <li><span role="img" aria-label="target">🎯</span> <b>Режим "Я знаю, какие будут станции":</b> Нажмите соответствующую кнопку в меню, чтобы выбрать по одной или несколько задач из каждой подпапки (клиническая и практическая для каждого раздела). После выбора вы сможете быстро переключаться только между этими задачами.</li>
+                  <li><span role="img" aria-label="lightbulb">💡</span> <b>Зачем это нужно?</b> Такой режим будет полезен, если вам уже известно, какие задачи будут ждать вас на экзамене. Выберите задачи и фокусируйтесь только на них, чтобы сэкономить время. При этом глобальный поиск по-прежнему работает по всем файлам банка.</li>
+                </ul>
+              </div>
+
+              {/* Sticky Footer */}
+              <div className="flex shrink-0 justify-end border-t bg-gray-50 px-6 py-4">
                 <Button variant="secondary" onClick={() => setShowHelp(false)}>Понятно</Button>
               </div>
             </div>
