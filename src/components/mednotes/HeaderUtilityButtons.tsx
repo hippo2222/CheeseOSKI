@@ -8,6 +8,7 @@ import { Coffee, CircleAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import qr1Img from '../../../docs/qr1.jpg';
 import qr2Img from '../../../docs/qr2.jpg';
+import FeedbackWidget from './FeedbackWidget';
 
 export default function HeaderUtilityButtons() {
   const [showLegalDisclaimer, setShowLegalDisclaimer] = React.useState(false);
@@ -15,6 +16,7 @@ export default function HeaderUtilityButtons() {
 
   return (
     <>
+      <FeedbackWidget onVoteYes={() => setShowCoffeeSupport(true)} />
       <div className="flex items-center gap-2 shrink-0">
         <Button
           type="button"
