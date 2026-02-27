@@ -123,76 +123,83 @@ export default function HeaderUtilityButtons() {
         document.body
       )}
 
-      <AnimatePresence>
-        {showCoffeeSupport && ReactDOM.createPortal(
-          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4" onClick={() => setShowCoffeeSupport(false)}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-2xl max-h-[88vh] flex flex-col overflow-hidden rounded-2xl border border-amber-200 bg-white shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-50 via-orange-50 to-white px-6 py-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100">
-                    <Coffee className="h-5 w-5 text-amber-700" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-amber-900">Кофе автору</h3>
-                    <p className="text-xs text-amber-700">Небольшое спасибо за удобный инструмент для учёбы</p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="rounded-md px-2 py-1 text-lg leading-none text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                  aria-label="Закрыть окно поддержки"
-                  onClick={() => setShowCoffeeSupport(false)}
+      {typeof document !== 'undefined'
+        ? ReactDOM.createPortal(
+          <AnimatePresence>
+            {showCoffeeSupport && (
+              <div
+                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4"
+                onClick={() => setShowCoffeeSupport(false)}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="relative w-full max-w-2xl max-h-[88vh] flex flex-col overflow-hidden rounded-2xl border border-amber-200 bg-white shadow-2xl"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  ×
-                </button>
-              </div>
-              <div className="overflow-y-auto flex-1 px-6 py-5">
-                <div className="rounded-2xl border border-amber-100 bg-gradient-to-br from-amber-50 to-orange-50 p-5">
-                  <p className="text-sm leading-6 text-amber-950">
-                    Если вам нравится сайт, если он помог вам в учёбе и если вам действительно удобно им пользоваться, вы можете поблагодарить автора
-                    за его незаурядные способности в программировании и угостить его чашечкой кофе.
-                  </p>
-                </div>
-                <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                    <div className="mb-3 text-center text-sm font-medium text-gray-700">QR-код 1</div>
-                    <div className="overflow-hidden rounded-xl border bg-white p-2">
-                      <Image
-                        src={qr1Img}
-                        alt="QR-код для поддержки автора, вариант 1"
-                        className="h-auto w-full rounded-md"
-                      />
+                  <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-amber-100 bg-gradient-to-r from-amber-50 via-orange-50 to-white px-6 py-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100">
+                        <Coffee className="h-5 w-5 text-amber-700" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-amber-900">Кофе автору</h3>
+                        <p className="text-xs text-amber-700">Небольшое спасибо за удобный инструмент для учёбы</p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      className="rounded-md px-2 py-1 text-lg leading-none text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                      aria-label="Закрыть окно поддержки"
+                      onClick={() => setShowCoffeeSupport(false)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="overflow-y-auto flex-1 px-6 py-5">
+                    <div className="rounded-2xl border border-amber-100 bg-gradient-to-br from-amber-50 to-orange-50 p-5">
+                      <p className="text-sm leading-6 text-amber-950">
+                        Если вам нравится сайт, если он помог вам в учёбе и если вам действительно удобно им пользоваться, вы можете поблагодарить автора
+                        за его незаурядные способности в программировании и угостить его чашечкой кофе.
+                      </p>
+                    </div>
+                    <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+                        <div className="mb-3 text-center text-sm font-medium text-gray-700">QR-код 1</div>
+                        <div className="overflow-hidden rounded-xl border bg-white p-2">
+                          <Image
+                            src={qr1Img}
+                            alt="QR-код для поддержки автора, вариант 1"
+                            className="h-auto w-full rounded-md"
+                          />
+                        </div>
+                      </div>
+                      <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+                        <div className="mb-3 text-center text-sm font-medium text-gray-700">QR-код 2</div>
+                        <div className="overflow-hidden rounded-xl border bg-white p-2">
+                          <Image
+                            src={qr2Img}
+                            alt="QR-код для поддержки автора, вариант 2"
+                            className="h-auto w-full rounded-md"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                    <div className="mb-3 text-center text-sm font-medium text-gray-700">QR-код 2</div>
-                    <div className="overflow-hidden rounded-xl border bg-white p-2">
-                      <Image
-                        src={qr2Img}
-                        alt="QR-код для поддержки автора, вариант 2"
-                        className="h-auto w-full rounded-md"
-                      />
-                    </div>
+                  <div className="flex shrink-0 justify-end border-t bg-gray-50 px-6 py-4">
+                    <Button variant="secondary" onClick={() => setShowCoffeeSupport(false)}>
+                      Спасибо
+                    </Button>
                   </div>
-                </div>
+                </motion.div>
               </div>
-              <div className="flex shrink-0 justify-end border-t bg-gray-50 px-6 py-4">
-                <Button variant="secondary" onClick={() => setShowCoffeeSupport(false)}>
-                  Спасибо
-                </Button>
-              </div>
-            </motion.div>
-          </div>,
+            )}
+          </AnimatePresence>,
           document.body
-        )}
-      </AnimatePresence>
+        )
+        : null}
     </>
   );
 }
