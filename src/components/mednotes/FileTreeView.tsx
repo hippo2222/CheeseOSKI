@@ -5,7 +5,7 @@ import FileTreeItem from './FileTreeItem';
 import type { FileNode } from '@/types';
 import { SidebarMenu } from '@/components/ui/sidebar';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { GripVertical, ClipboardType, ListChecks, Baby, BriefcaseMedical, Stethoscope, Scissors, Siren, UserCheck, UserPlus, HeartPulse, Syringe, Ambulance, BookOpenCheck, BookOpen, UserCog, User, UserSquare, UserCircle, User2, UserPlus2, UserCheck2, UserRoundCheck, UserRoundPlus, UserRound, UserRoundCog, UserRoundSearch, UserRoundX, UserRoundMinus } from 'lucide-react';
+import { GripVertical, ClipboardType, ListChecks, Baby, BriefcaseMedical, Stethoscope, Scissors, Siren, UserCheck, UserPlus, HeartPulse, Syringe, Ambulance, BookOpenCheck, BookOpen, UserCog, User, UserSquare, UserCircle, User2, UserPlus2, UserCheck2, UserRoundCheck, UserRoundPlus, UserRound, UserRoundCog, UserRoundSearch, UserRoundX, UserRoundMinus, X, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import * as ReactDOM from 'react-dom';
 import { AnimatePresence, Reorder, motion, useDragControls } from 'framer-motion';
@@ -46,6 +46,26 @@ interface FileTreeViewProps {
 
 const LOCAL_STORAGE_KEY = 'mednotes-subfolder-order';
 
+const getSubfolderIcon = (parentName: string, subfolderName: string) => {
+  const pName = parentName.toLowerCase();
+  const sName = subfolderName.toLowerCase();
+  const isKlin = sName.includes('клиническ') || sName.includes('клініч');
+  const isPrakt = sName.includes('практическ') || sName.includes('практич');
+  
+  if (pName.includes('педіатр') || pName.includes('педиатр')) {
+    return isKlin ? Baby : BookOpenCheck;
+  } else if (pName.includes('акушер')) {
+    return isKlin ? BriefcaseMedical : Syringe;
+  } else if (pName.includes('внутрішня') || pName.includes('внутренняя')) {
+    return isKlin ? Stethoscope : HeartPulse;
+  } else if (pName.includes('хирург')) {
+    return isKlin ? Scissors : UserCheck;
+  } else if (pName.includes('екстрен') || pName.includes('экстрен')) {
+    return isKlin ? Siren : Ambulance;
+  }
+  return ClipboardType;
+};
+
 const getAllSubfolders = (nodes: FileNode[]) => {
   return nodes.flatMap(folder =>
     (folder.children || []).filter(child => child.type === 'folder').map(sub => ({
@@ -77,20 +97,7 @@ const ReorderableSubfolderItem: React.FC<ReorderableSubfolderItemProps> = ({
   const dragControls = useDragControls();
   const isKlin = sf.node.name.toLowerCase().includes('клиническ');
   const isPrakt = sf.node.name.toLowerCase().includes('практическ');
-  const parentName = sf.parent.name.toLowerCase();
-  let IconComponent = ClipboardType;
-
-  if (parentName.includes('педіатр') || parentName.includes('педиатр')) {
-    IconComponent = isKlin ? Baby : BookOpenCheck;
-  } else if (parentName.includes('акушер')) {
-    IconComponent = isKlin ? BriefcaseMedical : Syringe;
-  } else if (parentName.includes('внутрішня') || parentName.includes('внутренняя')) {
-    IconComponent = isKlin ? Stethoscope : HeartPulse;
-  } else if (parentName.includes('хирург')) {
-    IconComponent = isKlin ? Scissors : UserCheck;
-  } else if (parentName.includes('екстрен') || parentName.includes('экстрен')) {
-    IconComponent = isKlin ? Siren : Ambulance;
-  }
+  const IconComponent = getSubfolderIcon(sf.parent.name, sf.node.name);
 
   return (
     <Reorder.Item
@@ -184,13 +191,26 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
   const [subfolderOrder, setSubfolderOrder] = React.useState<string[]>([]);
 
   const [selectMode, setSelectMode] = React.useState(false);
-  const [selectedStations, setSelectedStations] = React.useState<{ [subfolderId: string]: FileNode | null }>({});
+  const [selectedStationIds, setSelectedStationIds] = React.useState<Record<string, string | null>>({});
 
   const [showHelp, setShowHelp] = React.useState(false);
 
   const [expandedSubfolders, setExpandedSubfolders] = useState<Set<string>>(new Set());
 
   const [expandedUnknownFolders, setExpandedUnknownFolders] = useState<Set<string>>(new Set());
+
+  const LOCAL_STORAGE_SELECTED_KEY = 'mednotes-selected-stations';
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_SELECTED_KEY);
+    if (saved) {
+      try {
+        setSelectedStationIds(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to parse selected stations', e);
+      }
+    }
+  }, []);
 
   const rootFiles = nodes.filter(n => n.type === 'file');
 
@@ -241,7 +261,35 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
     }
   }, [selectedFileId, expandedSubfolders]);
 
-  const chosenFiles = Object.values(selectedStations).filter(Boolean) as FileNode[];
+  const selectedStations = React.useMemo(() => {
+    const map: Record<string, FileNode | null> = {};
+    for (const sf of orderedSubfolders) {
+      if (!sf) continue;
+      const savedId = selectedStationIds[sf.node.id];
+      if (savedId) {
+        const found = (sf.node.children || []).find(c => c.id === savedId);
+        if (found) {
+          map[sf.node.id] = found;
+          continue;
+        }
+      }
+      map[sf.node.id] = null;
+    }
+    return map;
+  }, [orderedSubfolders, selectedStationIds]);
+
+  const handleSelectStationFile = (subfolderId: string, fileId: string | null) => {
+    setSelectedStationIds(prev => {
+      const next = { ...prev, [subfolderId]: fileId };
+      localStorage.setItem(LOCAL_STORAGE_SELECTED_KEY, JSON.stringify(next));
+      return next;
+    });
+  };
+
+  const handleResetAllStations = () => {
+    setSelectedStationIds({});
+    localStorage.removeItem(LOCAL_STORAGE_SELECTED_KEY);
+  };
 
   const toggleSubfolder = (id: string) => {
     setExpandedSubfolders(prev => {
@@ -343,94 +391,148 @@ const FileTreeView: React.FC<FileTreeViewProps> = ({
           </Reorder.Group>
         )}
         {selectMode && (
-          <>
-            {orderedSubfolders.map(({ parent, node }) => (
-              <div key={node.id} className="mb-2 border rounded p-2 bg-muted">
-                <div className="font-semibold mb-1">{parent.name} — {node.name}</div>
-                {(node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
-                  <label key={file.id} className="flex items-center gap-2 cursor-pointer mb-1">
-                    <input
-                      type="radio"
-                      name={node.id}
-                      checked={selectedStations[node.id]?.id === file.id}
-                      onChange={() => setSelectedStations(prev => ({ ...prev, [node.id]: file }))}
-                    />
-                    <span>{file.name}</span>
-                  </label>
-                ))}
-                <label className="flex items-center gap-2 cursor-pointer mb-1 text-gray-500">
-                  <input
-                    type="radio"
-                    name={node.id}
-                    checked={!selectedStations[node.id]}
-                    onChange={() => setSelectedStations(prev => ({ ...prev, [node.id]: null }))}
-                  />
-                  <span>Не знаю задачи для этой станции</span>
-                </label>
-              </div>
-            ))}
-            {Object.keys(selectedStations).length === orderedSubfolders.length && (
-              <div className="mt-4">
-                <div className="font-bold mb-2">Выбранные станции:</div>
-                {orderedSubfolders.map(({ node, parent }) => {
-                  const file = selectedStations[node.id];
-                  if (file) {
-                    return (
-                      <div
-                        key={file.id}
-                        className="p-2 bg-white rounded shadow mb-2 cursor-pointer hover:bg-blue-50"
-                        onClick={() => onFileSelect(file)}
-                      >
-                        {file.name}
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div key={node.id}>
-                        <div
-                          className="p-2 bg-gray-100 rounded shadow mb-2 cursor-pointer hover:bg-blue-50 flex items-center justify-between"
-                          onClick={() => toggleUnknownFolder(node.id)}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-semibold text-gray-500">Выбор задач по станциям</span>
+              {Object.values(selectedStationIds).some(v => v !== null) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleResetAllStations}
+                  className="text-xs h-7 px-2 text-red-500 hover:text-red-600 hover:bg-red-50 flex items-center gap-1"
+                >
+                  <RotateCcw className="h-3 w-3" />
+                  Сбросить всё
+                </Button>
+              )}
+            </div>
+            {orderedSubfolders.map(({ parent, node }) => {
+              const file = selectedStations[node.id];
+              const IconComponent = getSubfolderIcon(parent.name, node.name);
+              const isKlin = node.name.toLowerCase().includes('клиническ');
+              const isPrakt = node.name.toLowerCase().includes('практическ');
+
+              if (file) {
+                return (
+                  <div
+                    key={node.id}
+                    className="border border-sidebar-border bg-sidebar-accent/30 rounded-md p-2 transition-all hover:border-blue-300"
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-gray-400 flex items-center gap-1">
+                        <span
+                          className={
+                            `inline-flex items-center justify-center rounded-full h-4 w-4 ` +
+                            (isKlin
+                              ? 'bg-blue-100 text-blue-700'
+                              : isPrakt
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-gray-100 text-gray-600')
+                          }
                         >
-                          <span>{parent.name} — {node.name}</span>
-                          <motion.span
-                            className="ml-2 text-xs inline-flex origin-center"
-                            animate={{ rotate: expandedUnknownFolders.has(node.id) ? 90 : 0 }}
-                            transition={{ duration: 0.16 }}
-                          >
-                            в–¶
-                          </motion.span>
-                        </div>
-                        <AnimatePresence initial={false}>
-                          {expandedUnknownFolders.has(node.id) && (
-                            <motion.div
-                              key={`${node.id}-unknown-files`}
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.18, ease: 'easeOut' }}
-                              className="overflow-hidden"
-                            >
-                              <div className="ml-4 mb-2 pt-1">
-                                {(node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
-                                  <div
-                                    key={file.id}
-                                    className="py-1 px-2 rounded cursor-pointer hover:bg-blue-50"
-                                    onClick={() => onFileSelect(file)}
-                                  >
-                                    {file.name}
-                                  </div>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                          <IconComponent className="h-2.5 w-2.5" />
+                        </span>
+                        {parent.name} — {node.name}
+                      </span>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-4 w-4 rounded-full text-gray-400 hover:text-red-500 hover:bg-gray-100"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelectStationFile(node.id, null);
+                        }}
+                        title="Сбросить выбор"
+                      >
+                        <X className="h-3 w-3" />
+                      </Button>
+                    </div>
+                    <div
+                      className={`p-2 rounded cursor-pointer text-xs font-semibold shadow-sm transition-all border ${
+                        selectedFileId === file.id
+                          ? 'bg-blue-100 border-blue-500 text-blue-900 font-bold'
+                          : 'bg-white border-gray-200 hover:bg-blue-50 text-gray-700'
+                      }`}
+                      onClick={() => onFileSelect(file)}
+                    >
+                      {file.name}
+                    </div>
+                  </div>
+                );
+              } else {
+                const isExpanded = expandedUnknownFolders.has(node.id);
+                return (
+                  <div
+                    key={node.id}
+                    className="border border-sidebar-border bg-sidebar-accent/10 rounded-md transition-all hover:bg-sidebar-accent/25"
+                  >
+                    <div
+                      className="p-2 flex items-center justify-between cursor-pointer select-none text-xs"
+                      onClick={() => toggleUnknownFolder(node.id)}
+                    >
+                      <div className="flex items-center gap-1.5 font-medium text-gray-700">
+                        <span
+                          className={
+                            `inline-flex items-center justify-center rounded-full h-5 w-5 ` +
+                            (isKlin
+                              ? 'bg-blue-100 text-blue-700'
+                              : isPrakt
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-gray-100 text-gray-600')
+                          }
+                        >
+                          <IconComponent className="h-3 w-3" />
+                        </span>
+                        <span>{parent.name} — {node.name}</span>
                       </div>
-                    );
-                  }
-                })}
-              </div>
-            )}
-          </>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] text-gray-400 italic">выберите задачу</span>
+                        <motion.span
+                          className="text-[10px] text-gray-400 inline-flex origin-center"
+                          animate={{ rotate: isExpanded ? 90 : 0 }}
+                          transition={{ duration: 0.16 }}
+                        >
+                          ▶
+                        </motion.span>
+                      </div>
+                    </div>
+                    <AnimatePresence initial={false}>
+                      {isExpanded && (
+                        <motion.div
+                          key={`${node.id}-unknown-files`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.18, ease: 'easeOut' }}
+                          className="overflow-hidden border-t border-sidebar-border bg-white/50"
+                        >
+                          <div className="p-1 space-y-0.5 max-h-48 overflow-y-auto">
+                            {(node.children || []).filter((f: FileNode) => f.type === 'file').map((file: FileNode) => (
+                              <div
+                                key={file.id}
+                                className={`py-1.5 px-2 rounded cursor-pointer text-xs transition-colors ${
+                                  selectedFileId === file.id
+                                    ? 'bg-blue-100 text-blue-900 font-bold border-l-2 border-blue-500 shadow-sm'
+                                    : 'hover:bg-blue-50/70 text-gray-600 hover:text-gray-900'
+                                }`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleSelectStationFile(node.id, file.id);
+                                  onFileSelect(file);
+                                }}
+                              >
+                                {file.name}
+                              </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+            })}
+          </div>
         )}
       </SidebarMenu>
     </ScrollArea>
